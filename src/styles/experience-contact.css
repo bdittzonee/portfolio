@@ -1,0 +1,274 @@
+/* =====================================================
+   EXPERIENCE — timeline
+   ===================================================== */
+
+.timeline {
+    max-width: 760px;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 130px 1fr;
+
+    gap: 40px;
+
+    padding: 36px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline-year {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    font-family: var(--font-mono);
+    font-size: 1rem;
+
+    color: var(--text-2);
+}
+
+.timeline-dot {
+    width: 8px;
+    height: 8px;
+
+    margin-top: 6px;
+
+    border-radius: 50%;
+
+    background: var(--text-3);
+
+    flex-shrink: 0;
+}
+
+.timeline-dot--now {
+    background: var(--aurora-3);
+
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+.timeline-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    max-width: 520px;
+
+    color: var(--text-2);
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CONTACT
+   ===================================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+}
+
+
+/* ---------- INFO ---------- */
+
+.contact-info > p {
+    max-width: 440px;
+
+    color: var(--text-2);
+
+    line-height: 1.8;
+
+    margin-bottom: 36px;
+}
+
+.contact-email {
+    display: inline-block;
+
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+
+    margin-bottom: 40px;
+
+    position: relative;
+}
+
+.contact-email::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        var(--aurora-1),
+        var(--aurora-2)
+    );
+}
+
+.contact-email:hover {
+    color: var(--aurora-2);
+}
+
+.contact-socials {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 24px;
+}
+
+.contact-socials a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--text-2);
+
+    transition: color var(--speed-fast) ease;
+}
+
+.contact-socials a:hover {
+    color: var(--text-1);
+}
+
+
+/* ---------- FORM ---------- */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--text-3);
+
+    margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    margin-bottom: 28px;
+    padding: 12px 2px;
+
+    border: none;
+    border-bottom: 1px solid var(--line);
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-1);
+
+    font-size: 0.95rem;
+
+    transition: border-color var(--speed-fast) ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-bottom-color: var(--aurora-1);
+}
+
+.contact-form textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.contact-form button {
+    align-self: flex-start;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 34px 4vw;
+
+    border-top: 1px solid var(--line);
+}
+
+.footer p {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+
+    color: var(--text-3);
+}
+
+.footer-top {
+    background: transparent;
+    border: none;
+
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+
+    color: var(--text-2);
+
+    transition: color var(--speed-fast) ease;
+}
+
+.footer-top:hover {
+    color: var(--text-1);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        gap: 16px;
+
+        text-align: center;
+    }
+
+}

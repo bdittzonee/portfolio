@@ -116,3 +116,32 @@ export const projects = [
         live: null,
     },
 ];
+
+export const timeline = [
+    {
+        year: "2024",
+        title: "Started the Journey",
+        description:
+            "Began studying Information Systems — learning programming fundamentals, databases, and web development basics.",
+    },
+    {
+        year: "2025",
+        title: "Building Real Projects",
+        description:
+            "Created desktop applications with C++, a Java game, and started building modern web experiences.",
+    },
+    {
+        year: "2026",
+        title: "Current Journey",
+        description:
+            "Deepening React, UI/UX, and building this portfolio. Always learning, always building.",
+        isNow: true,
+    },
+];
+
+export const contact = {
+    heading1: "Let's build",
+    heading2: "something together",
+    message:
+        "Feel free to reach out if you want to collaborate, discuss a project, or just say hello.",
+};

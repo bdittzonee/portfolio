@@ -137,6 +137,8 @@
     opacity: 0;
     visibility: hidden;
 
+    pointer-events: none; 
+
     transition:
         opacity var(--speed-fast) ease,
         visibility var(--speed-fast) ease;
@@ -145,6 +147,8 @@
 .navbar-overlay.open {
     opacity: 1;
     visibility: visible;
+
+    pointer-events: auto; 
 }
 
 .navbar-overlay ul {
