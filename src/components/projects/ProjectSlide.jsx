@@ -1,4 +1,4 @@
-import Reveal from "../ui/Reveal";
+import { Link } from "react-router-dom";
 
 function ProjectImage({ image, title }) {
     if (image) {
@@ -14,10 +14,9 @@ function ProjectImage({ image, title }) {
 
 export default function ProjectSlide({ project }) {
     return (
-        <a
-            href={`#project-${project.id}`}
+        <Link
+            to={`/project/${project.id}`}
             className="project-slide"
-            onClick={(event) => event.preventDefault()}
         >
             <div className="project-slide-image">
                 <ProjectImage image={project.image} title={project.title} />
@@ -25,7 +24,9 @@ export default function ProjectSlide({ project }) {
 
             <div className="project-slide-info">
                 <div className="project-slide-meta">
-                    <span>{project.number} / {project.category}</span>
+                    <span>
+                        {project.number} / {project.category}
+                    </span>
                 </div>
 
                 <div className="project-slide-title">
@@ -41,6 +42,6 @@ export default function ProjectSlide({ project }) {
                     ))}
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks, profile } from "../../data/portfolio";
 import "../../styles/layout.css";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,13 +23,36 @@ export default function Navbar() {
         };
     }, []);
 
+    // Kalau di halaman detail: pulang dulu, baru scroll ke section
+    const goToSection = (event, href) => {
+        event.preventDefault();
+
+        setMenuOpen(false);
+
+        const id = href.replace("#", "");
+
+        if (location.pathname !== "/") {
+            navigate("/");
+
+            setTimeout(() => {
+                document
+                    .getElementById(id)
+                    ?.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        } else {
+            document
+                .getElementById(id)
+                ?.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
             <nav className="navbar-container">
                 <a
                     href="#home"
                     className="navbar-logo"
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(event) => goToSection(event, "#home")}
                 >
                     {profile.firstName}
                     <span>.</span>
@@ -34,7 +61,14 @@ export default function Navbar() {
                 <ul className="navbar-menu">
                     {navLinks.map((link) => (
                         <li key={link.label}>
-                            <a href={link.href}>{link.label}</a>
+                            <a
+                                href={link.href}
+                                onClick={(event) =>
+                                    goToSection(event, link.href)
+                                }
+                            >
+                                {link.label}
+                            </a>
                         </li>
                     ))}
                 </ul>
@@ -59,7 +93,9 @@ export default function Navbar() {
                         >
                             <a
                                 href={link.href}
-                                onClick={() => setMenuOpen(false)}
+                                onClick={(event) =>
+                                    goToSection(event, link.href)
+                                }
                             >
                                 <span>0{index + 1}</span>
                                 {link.label}
