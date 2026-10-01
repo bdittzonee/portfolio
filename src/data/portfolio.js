@@ -41,7 +41,7 @@ export const about = {
         { label: "Focus", value: "Technology & Design" },
         { label: "Currently", value: "Learning & Building" },
     ],
-    photo: null,
+    photo: "/images/profile.jpg",
 };
 
 export const skills = [
@@ -87,7 +87,7 @@ export const projects = [
         description:
             "An interactive personal portfolio website designed with a living sky experience, smooth transitions, and modern visual effects.",
         tags: ["HTML", "CSS", "JavaScript"],
-        image: null,
+        image: "/images/project/portfolio.png",
         github: "https://github.com/bdittzonee/portfolio",
         live: null,
     },
@@ -99,7 +99,7 @@ export const projects = [
         description:
             "A desktop application for managing customers, transactions, stock, and barber shop revenue.",
         tags: ["C++", "GUI", "Linked List"],
-        image: null,
+        image: "/images/project/barbershop.png",
         github: null,
         live: null,
     },
@@ -111,7 +111,7 @@ export const projects = [
         description:
             "A 20×20 Minesweeper game developed using Java and Greenfoot with interactive gameplay and restart functionality.",
         tags: ["Java", "Greenfoot", "Game"],
-        image: null,
+        image: "/images/project/minesweeper.png",
         github: null,
         live: null,
     },
