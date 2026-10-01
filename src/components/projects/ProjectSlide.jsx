@@ -1,0 +1,46 @@
+import Reveal from "../ui/Reveal";
+
+function ProjectImage({ image, title }) {
+    if (image) {
+        return <img src={image} alt={title} loading="lazy" />;
+    }
+
+    return (
+        <div className="project-slide-placeholder">
+            <span>{title}</span>
+        </div>
+    );
+}
+
+export default function ProjectSlide({ project }) {
+    return (
+        <a
+            href={`#project-${project.id}`}
+            className="project-slide"
+            onClick={(event) => event.preventDefault()}
+        >
+            <div className="project-slide-image">
+                <ProjectImage image={project.image} title={project.title} />
+            </div>
+
+            <div className="project-slide-info">
+                <div className="project-slide-meta">
+                    <span>{project.number} / {project.category}</span>
+                </div>
+
+                <div className="project-slide-title">
+                    <h3>{project.title}</h3>
+                    <span className="project-slide-arrow">↗</span>
+                </div>
+
+                <p>{project.description}</p>
+
+                <div className="project-slide-tags">
+                    {project.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                    ))}
+                </div>
+            </div>
+        </a>
+    );
+}
