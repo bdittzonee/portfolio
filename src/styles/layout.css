@@ -1,0 +1,205 @@
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        background var(--speed-fast) ease,
+        border-color var(--speed-fast) ease;
+}
+
+.navbar--scrolled {
+    background: rgba(5, 7, 15, 0.7);
+    backdrop-filter: blur(16px);
+    border-bottom-color: var(--line);
+}
+
+.navbar-container {
+    width: min(1200px, 92%);
+    margin-inline: auto;
+
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar-logo span {
+    color: var(--aurora-1);
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.navbar-menu a {
+    position: relative;
+
+    font-size: 0.85rem;
+    color: var(--text-2);
+
+    transition: color var(--speed-fast) ease;
+}
+
+.navbar-menu a:hover {
+    color: var(--text-1);
+}
+
+.navbar-menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+    background: var(--text-1);
+
+    transition: width var(--speed-fast) var(--ease-out);
+}
+
+.navbar-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- HAMBURGER ---------- */
+
+.navbar-toggle {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    background: transparent;
+    border: none;
+}
+
+.navbar-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-1);
+
+    transition:
+        transform var(--speed-fast) var(--ease-out),
+        opacity var(--speed-fast) ease;
+}
+
+.navbar-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ---------- MOBILE OVERLAY ---------- */
+
+.navbar-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(5, 7, 15, 0.97);
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity var(--speed-fast) ease,
+        visibility var(--speed-fast) ease;
+}
+
+.navbar-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-overlay ul {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    text-align: center;
+}
+
+.navbar-overlay li {
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.5s var(--ease-out),
+        transform 0.5s var(--ease-out);
+}
+
+.navbar-overlay.open li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-overlay a {
+    font-family: var(--font-display);
+    font-size: 2rem;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 14px;
+}
+
+.navbar-overlay a span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--aurora-1);
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-container {
+        min-height: 70px;
+    }
+
+}
