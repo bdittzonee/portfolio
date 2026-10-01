@@ -272,3 +272,27 @@
     }
 
 }
+
+/* ---------- FORM STATUS ---------- */
+
+.form-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+
+    margin-top: -14px;
+}
+
+.form-status--ok {
+    color: var(--aurora-2);
+}
+
+.form-status--err {
+    color: #f87171;
+}
+
+.contact-form button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}

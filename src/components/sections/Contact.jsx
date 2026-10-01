@@ -1,9 +1,37 @@
+import { useState } from "react";
 import { contact, profile, socials } from "../../data/portfolio";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../ui/Reveal";
 import "../../styles/experience-contact.css";
 
 export default function Contact() {
+    const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        setStatus("sending");
+
+        const formData = new FormData(event.target);
+
+        try {
+            const response = await fetch(contact.formspree, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+            });
+
+            if (response.ok) {
+                setStatus("sent");
+                event.target.reset();
+            } else {
+                setStatus("error");
+            }
+        } catch {
+            setStatus("error");
+        }
+    };
+
     return (
         <section id="contact" className="contact">
             <div className="container">
@@ -45,11 +73,7 @@ export default function Contact() {
                     <Reveal delay={2}>
                         <form
                             className="contact-form"
-                            onSubmit={(event) => {
-                                event.preventDefault();
-                                // Step berikutnya: sambungkan ke Formspree
-                                alert("Form akan segera terhubung!");
-                            }}
+                            onSubmit={handleSubmit}
                         >
                             <label htmlFor="name">Name</label>
                             <input
@@ -58,6 +82,7 @@ export default function Contact() {
                                 type="text"
                                 placeholder="Your name"
                                 required
+                                disabled={status === "sending"}
                             />
 
                             <label htmlFor="email">Email</label>
@@ -67,6 +92,7 @@ export default function Contact() {
                                 type="email"
                                 placeholder="Your email"
                                 required
+                                disabled={status === "sending"}
                             />
 
                             <label htmlFor="message">Message</label>
@@ -75,11 +101,30 @@ export default function Contact() {
                                 name="message"
                                 placeholder="Your message"
                                 required
+                                disabled={status === "sending"}
                             />
 
-                            <button type="submit" className="btn btn-ghost">
-                                Send Message →
+                            <button
+                                type="submit"
+                                className="btn btn-ghost"
+                                disabled={status === "sending"}
+                            >
+                                {status === "sending"
+                                    ? "Sending..."
+                                    : "Send Message →"}
                             </button>
+
+                            {status === "sent" && (
+                                <p className="form-status form-status--ok">
+                                    ✓ Message sent! I'll reply soon.
+                                </p>
+                            )}
+
+                            {status === "error" && (
+                                <p className="form-status form-status--err">
+                                    ✕ Failed to send — try email me directly.
+                                </p>
+                            )}
                         </form>
                     </Reveal>
                 </div>

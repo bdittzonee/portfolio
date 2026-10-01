@@ -1,10 +1,10 @@
 // =====================================================
-// SEMUA KONTEN WEBSITE — edit di sini
+// PUSAT KONTEN WEBSITE — semua edit di sini
 // =====================================================
 
 export const profile = {
     firstName: "Raditya",
-    lastName: "Hafis Abyanka",
+    lastName: "Hafisabyanka",
     role: "Information Systems Student",
     tagline: "Turning ideas into meaningful digital experiences.",
     email: "radityahafisabyanka@gmail.com",
@@ -33,7 +33,8 @@ export const socials = [
 ];
 
 export const about = {
-    intro: "I'm an Information Systems student exploring technology, design, and digital experiences.",
+    intro:
+        "I'm an Information Systems student exploring technology, design, and digital experiences.",
     description:
         "I enjoy learning how technology can be used to solve problems and create useful experiences. This portfolio is a place where I showcase my journey, projects, and things I'm learning.",
     details: [
@@ -41,7 +42,7 @@ export const about = {
         { label: "Focus", value: "Technology & Design" },
         { label: "Currently", value: "Learning & Building" },
     ],
-    photo: "/images/profile.jpg",
+    photo: null,
 };
 
 export const skills = [
@@ -85,11 +86,11 @@ export const projects = [
         category: "Web Development",
         title: "Personal Portfolio",
         description:
-            "An interactive personal portfolio website designed with a living sky experience, smooth transitions, and modern visual effects.",
+            "An interactive personal portfolio website designed with an animated starfield experience, smooth transitions, and modern visual effects.",
         tags: ["HTML", "CSS", "JavaScript"],
-        image: "/images/project/portfolio.png",
+        image: "/images/project/portfolio.svg",
         github: "https://github.com/bdittzonee/portfolio",
-        live: null,
+        live: "https://portfolio-sigma-five-tw2iqf7t3w.vercel.app",
     },
     {
         id: "barbershop",
@@ -99,7 +100,7 @@ export const projects = [
         description:
             "A desktop application for managing customers, transactions, stock, and barber shop revenue.",
         tags: ["C++", "GUI", "Linked List"],
-        image: "/images/project/barbershop.png",
+        image: "/images/project/barbershop.svg",
         github: null,
         live: null,
     },
@@ -111,7 +112,7 @@ export const projects = [
         description:
             "A 20×20 Minesweeper game developed using Java and Greenfoot with interactive gameplay and restart functionality.",
         tags: ["Java", "Greenfoot", "Game"],
-        image: "/images/project/minesweeper.png",
+        image: "/images/project/minesweeper.svg",
         github: null,
         live: null,
     },
@@ -144,4 +145,5 @@ export const contact = {
     heading2: "something together",
     message:
         "Feel free to reach out if you want to collaborate, discuss a project, or just say hello.",
+    formspree: "https://formspree.io/f/mzezqoza",
 };
