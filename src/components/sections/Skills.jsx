@@ -46,13 +46,11 @@ export default function Skills() {
     return (
         <section id="skills" className="skills">
             <div className="container">
-                <Reveal>
                     <SectionHeading
                         number="02"
                         title="Skills"
                         subtitle="What I work with"
                     />
-                </Reveal>
 
                 <div className="skills-grid">
                     {skills.map((group, index) => (

@@ -7,13 +7,11 @@ export default function About() {
     return (
         <section id="about" className="about">
             <div className="container">
-                <Reveal>
                     <SectionHeading
                         number="01"
                         title="About Me"
                         subtitle="A little about myself"
                     />
-                </Reveal>
 
                 <div className="about-grid">
                     <Reveal delay={1} className="about-image-wrap">

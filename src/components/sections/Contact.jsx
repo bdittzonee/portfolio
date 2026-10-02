@@ -35,13 +35,11 @@ export default function Contact() {
     return (
         <section id="contact" className="contact">
             <div className="container">
-                <Reveal>
                     <SectionHeading
                         number="05"
                         title={contact.heading1}
                         subtitle={contact.heading2}
                     />
-                </Reveal>
 
                 <div className="contact-grid">
                     <Reveal delay={1}>

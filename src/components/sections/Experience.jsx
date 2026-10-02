@@ -7,13 +7,11 @@ export default function Experience() {
     return (
         <section id="experience" className="experience">
             <div className="container">
-                <Reveal>
                     <SectionHeading
                         number="04"
                         title="My Journey"
                         subtitle="Experience and milestones"
                     />
-                </Reveal>
 
                 <div className="timeline">
                     {timeline.map((item, index) => (

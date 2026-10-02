@@ -8,7 +8,6 @@ export default function Projects() {
     return (
         <section id="projects" className="projects">
             <div className="container">
-                <Reveal>
                     <div className="projects-heading-row">
                         <SectionHeading
                             number="03"
@@ -16,7 +15,6 @@ export default function Projects() {
                             subtitle="Selected works"
                         />
                     </div>
-                </Reveal>
             </div>
 
             <Reveal delay={1}>
