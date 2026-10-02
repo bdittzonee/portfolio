@@ -88,7 +88,7 @@ export const projects = [
         description:
             "An interactive personal portfolio website designed with an animated starfield experience, smooth transitions, and modern visual effects.",
         tags: ["HTML", "CSS", "JavaScript"],
-        image: "/images/project/portfolio.svg",
+        image: "/images/project/portfolio.png",
         github: "https://github.com/bdittzonee/portfolio",
         live: "https://portfolio-sigma-five-tw2iqf7t3w.vercel.app",
     },
@@ -100,7 +100,7 @@ export const projects = [
         description:
             "A desktop application for managing customers, transactions, stock, and barber shop revenue.",
         tags: ["C++", "GUI", "Linked List"],
-        image: "/images/project/barbershop.svg",
+        image: "/images/project/barbershop.png",
         github: null,
         live: null,
     },
@@ -112,7 +112,7 @@ export const projects = [
         description:
             "A 20×20 Minesweeper game developed using Java and Greenfoot with interactive gameplay and restart functionality.",
         tags: ["Java", "Greenfoot", "Game"],
-        image: "/images/project/minesweeper.svg",
+        image: "/images/project/minesweeper.png",
         github: null,
         live: null,
     },
