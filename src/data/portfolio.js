@@ -4,7 +4,7 @@
 
 export const profile = {
     firstName: "Raditya",
-    lastName: "Hafisabyanka",
+    lastName: "Hafis Abyanka",
     role: "Information Systems Student",
     tagline: "Turning ideas into meaningful digital experiences.",
     email: "radityahafisabyanka@gmail.com",
@@ -22,7 +22,7 @@ export const navLinks = [
 
 export const marqueeSkills = [
     "HTML", "CSS", "JavaScript", "React", "Python", "C++",
-    "Java", "MySQL", "MongoDB", "Figma", "UI/UX",
+    "Java", "MySQL", "MongoDB", "Figma", "UI/UX", "Canva",
 ];
 
 export const socials = [
@@ -49,32 +49,32 @@ export const skills = [
     {
         category: "Web Development",
         items: [
-            { name: "HTML", level: 85 },
-            { name: "CSS", level: 80 },
-            { name: "JavaScript", level: 65 },
+            { name: "HTML", level: 80 },
+            { name: "CSS", level: 75 },
+            { name: "JavaScript", level: 80 },
         ],
     },
     {
         category: "Programming",
         items: [
-            { name: "Python", level: 70 },
-            { name: "C++", level: 75 },
-            { name: "Java", level: 60 },
+            { name: "Python", level: 80 },
+            { name: "C++", level: 85 },
+            { name: "Java", level: 85 },
         ],
     },
     {
         category: "Database",
         items: [
-            { name: "MySQL", level: 75 },
-            { name: "MongoDB", level: 60 },
+            { name: "MySQL", level: 85 },
+            { name: "MongoDB", level: 75 },
         ],
     },
     {
         category: "Design",
         items: [
-            { name: "Figma", level: 75 },
-            { name: "Canva", level: 80 },
-            { name: "UI / UX", level: 70 },
+            { name: "Figma", level: 70 },
+            { name: "Canva", level: 90 },
+            { name: "UI / UX", level: 80 },
         ],
     },
 ];
@@ -88,7 +88,7 @@ export const projects = [
         description:
             "An interactive personal portfolio website designed with an animated starfield experience, smooth transitions, and modern visual effects.",
         tags: ["HTML", "CSS", "JavaScript"],
-        image: "/images/project/portfolio.png",
+        image: "/images/project/portfolio.svg",
         github: "https://github.com/bdittzonee/portfolio",
         live: "https://portfolio-sigma-five-tw2iqf7t3w.vercel.app",
     },
@@ -100,7 +100,7 @@ export const projects = [
         description:
             "A desktop application for managing customers, transactions, stock, and barber shop revenue.",
         tags: ["C++", "GUI", "Linked List"],
-        image: "/images/project/barbershop.png",
+        image: "/images/project/barbershop.svg",
         github: null,
         live: null,
     },
@@ -112,7 +112,7 @@ export const projects = [
         description:
             "A 20×20 Minesweeper game developed using Java and Greenfoot with interactive gameplay and restart functionality.",
         tags: ["Java", "Greenfoot", "Game"],
-        image: "/images/project/minesweeper.png",
+        image: "/images/project/minesweeper.svg",
         github: null,
         live: null,
     },
