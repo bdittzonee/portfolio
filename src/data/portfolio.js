@@ -47,34 +47,35 @@ export const about = {
 
 export const skills = [
     {
-        category: "Web Development",
+        category: "Frontend",
         items: [
-            { name: "HTML", level: 80 },
-            { name: "CSS", level: 75 },
-            { name: "JavaScript", level: 80 },
+            { name: "HTML", icon: "html5", color: "E34F26" },
+            { name: "CSS", icon: "css", color: "1572B6" },
+            { name: "JavaScript", icon: "javascript", color: "F7DF1E" },
+            { name: "React", icon: "react", color: "61DAFB" },
         ],
     },
     {
-        category: "Programming",
+        category: "Languages",
         items: [
-            { name: "Python", level: 80 },
-            { name: "C++", level: 85 },
-            { name: "Java", level: 85 },
+            { name: "Python", icon: "python", color: "3776AB" },
+            { name: "C++", icon: "cplusplus", color: "00599C" },
+            { name: "Java", icon: "openjdk", color: "FFFFFF" },
         ],
     },
     {
         category: "Database",
         items: [
-            { name: "MySQL", level: 85 },
-            { name: "MongoDB", level: 75 },
+            { name: "MySQL", icon: "mysql", color: "4479A1" },
+            { name: "MongoDB", icon: "mongodb", color: "47A248" },
         ],
     },
     {
-        category: "Design",
+        category: "Design & Editing",
         items: [
-            { name: "Figma", level: 70 },
-            { name: "Canva", level: 90 },
-            { name: "UI / UX", level: 80 },
+            { name: "Figma", icon: "figma", color: "F24E1E" },
+            { name: "Canva", icon: "canva", color: "00C4CC" },
+            { name: "UI / UX", icon: null },
         ],
     },
 ];

@@ -178,23 +178,120 @@
 
 
 /* =====================================================
-   SKILLS
+   SKILLS — folder tabs + canvas panel (glass)
    ===================================================== */
 
-.skills-grid {
+.skills-layout {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 280px 1fr;
 
-    gap: 24px;
+    gap: 32px;
+
+    align-items: start;
 }
 
-.skill-card {
-    position: relative;
 
-    padding: 34px 36px;
+/* ---------- FOLDERS ---------- */
+
+.skills-folders {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.skills-folder {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 14px;
 
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    border-radius: 10px;
+
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+
+    color: var(--text-2);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform var(--speed-fast) var(--ease-out),
+        background var(--speed-fast) ease,
+        border-color var(--speed-fast) ease,
+        color var(--speed-fast) ease;
+}
+
+.skills-folder:hover {
+    transform: translateX(4px);
+
+    color: var(--text-1);
+}
+
+.skills-folder.active {
+    background: var(--glass-bg-strong);
+
+    border-color: rgba(0, 245, 212, 0.45);
+
+    color: var(--text-1);
+}
+
+.skills-folder-icon {
+    font-size: 1rem;
+}
+
+.skills-folder-name {
+    flex: 1;
+
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+
+.skills-folder-count {
+    min-width: 26px;
+    height: 20px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 6px;
+
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+}
+
+.skills-folder.active .skills-folder-count {
+    background: var(--aurora-1);
+
+    border-color: transparent;
+
+    color: #ffffff;
+}
+
+
+/* ---------- PANEL (kanvas) ---------- */
+
+.skills-panel {
+    position: relative;
+
+    min-height: 320px;
+
+    padding: 36px;
+
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
 
     background: var(--glass-bg);
 
@@ -203,137 +300,117 @@
 
     box-shadow: var(--glass-shadow);
 
-    overflow: hidden;
-
-    transition:
-        background 0.5s ease,
-        border-color 0.5s ease,
-        transform 0.5s var(--ease-out);
+    animation: panelIn 0.45s var(--ease-out);
 }
 
-.skill-card::before {
-    content: "";
+@keyframes panelIn {
 
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ---------- CORNER HANDLES (vibe design tool) ---------- */
+
+.skills-panel-corners span {
     position: absolute;
-    top: 0;
-    left: 8%;
-    right: 8%;
 
-    height: 1px;
+    width: 7px;
+    height: 7px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--glass-highlight),
-        transparent
-    );
+    background: var(--bg-1);
+
+    border: 1px solid rgba(0, 245, 212, 0.7);
 }
 
-.skill-card:hover {
-    background: var(--glass-bg-strong);
-
-    border-color: rgba(255, 255, 255, 0.28);
-
-    transform: translateY(-4px);
+.skills-panel-corners span:nth-child(1) {
+    top: -4px;
+    left: -4px;
 }
 
-.skill-card-header {
+.skills-panel-corners span:nth-child(2) {
+    top: -4px;
+    right: -4px;
+}
+
+.skills-panel-corners span:nth-child(3) {
+    bottom: -4px;
+    left: -4px;
+}
+
+.skills-panel-corners span:nth-child(4) {
+    bottom: -4px;
+    right: -4px;
+}
+
+
+/* ---------- ITEMS ---------- */
+
+.skills-items {
     display: grid;
-    grid-template-columns: 35px 1fr auto;
-    align-items: center;
-    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 
-    padding-bottom: 22px;
-
-    border-bottom: 1px solid var(--line);
+    gap: 18px;
 }
 
-.skill-card-number {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-
-    color: var(--text-3);
-}
-
-.skill-card-header h3 {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
-.skill-card-arrow {
-    color: var(--text-3);
-
-    transition:
-        transform 0.4s var(--ease-out),
-        color 0.4s ease;
-}
-
-.skill-card:hover .skill-card-arrow {
-    transform: translate(4px, -4px);
-    color: var(--text-1);
-}
-
-
-/* ---------- SKILL BAR ---------- */
-
-.skill-list {
+.skills-item {
     display: flex;
     flex-direction: column;
-    gap: 18px;
-
-    padding-top: 24px;
-}
-
-.skill-item {
-    display: grid;
-    grid-template-columns: 100px 1fr 42px;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 24px 12px;
+
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform var(--speed-fast) var(--ease-out),
+        border-color var(--speed-fast) ease,
+        background var(--speed-fast) ease;
 }
 
-.skill-name {
-    font-size: 0.85rem;
+.skills-item:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0, 245, 212, 0.45);
+
+    background: var(--glass-bg-strong);
+}
+
+.skills-item-icon {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+}
+
+.skills-item-icon--text {
+    display: grid;
+    place-items: center;
+
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+
+    color: var(--aurora-2);
+}
+
+.skills-item-name {
+    font-size: 0.8rem;
+
     color: var(--text-2);
-}
-
-.skill-item small {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-
-    text-align: right;
-
-    color: var(--text-3);
-}
-
-.skill-bar {
-    height: 2px;
-
-    background: var(--line);
-
-    overflow: hidden;
-}
-
-.skill-bar-fill {
-    display: block;
-
-    width: var(--skill);
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        var(--aurora-1),
-        var(--aurora-2)
-    );
-
-    transform: scaleX(0);
-    transform-origin: left;
-
-    transition: transform 1.2s var(--ease-out) 0.2s;
-}
-
-.skill-card--active .skill-bar-fill {
-    transform: scaleX(1);
 }
 
 
@@ -352,21 +429,30 @@
         grid-template-columns: 1fr;
     }
 
+    .skills-layout {
+    grid-template-columns: 1fr;
+    }
+
 }
 
 @media (max-width: 600px) {
 
-    .skill-card {
-        padding: 28px 24px;
-    }
-
-    .skill-item {
-        grid-template-columns: 80px 1fr 38px;
-    }
-
     .about-details {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .skills-folders {
+    flex-direction: row;
+    flex-wrap: wrap;
+    }
+
+    .skills-folder {
+        flex: 1 1 45%;
+    }
+
+    .skills-panel {
+        padding: 24px 16px;
     }
 
 }
