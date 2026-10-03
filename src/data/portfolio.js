@@ -6,7 +6,7 @@ export const profile = {
     firstName: "Raditya",
     lastName: "Hafis Abyanka",
     role: "Information Systems Student",
-    tagline: "Turning ideas into meaningful digital experiences.",
+    tagline: "Exploring Technology, Design, and Digital Creativity.",
     email: "radityahafisabyanka@gmail.com",
     location: "Indonesia",
 };
@@ -34,9 +34,9 @@ export const socials = [
 
 export const about = {
     intro:
-        "I'm an Information Systems student exploring technology, design, and digital experiences.",
+        "Mahasiswa Sistem Informasi yang tertarik pada teknologi, desain, dan pengembangan solusi digital yang interaktif.",
     description:
-        "I enjoy learning how technology can be used to solve problems and create useful experiences. This portfolio is a place where I showcase my journey, projects, and things I'm learning.",
+        "Saya suka mengeksplorasi teknologi dan desain untuk menemukan cara baru dalam memecahkan masalah dan menciptakan sesuatu yang bermanfaat. Di portfolio ini, saya membagikan perjalanan, proyek, dan berbagai hal yang sedang saya pelajari.",
     details: [
         { label: "Based in", value: "Indonesia" },
         { label: "Focus", value: "Technology & Design" },
