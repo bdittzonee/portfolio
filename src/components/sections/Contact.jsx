@@ -6,6 +6,17 @@ import "../../styles/experience-contact.css";
 
 export default function Contact() {
     const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+    const [copied, setCopied] = useState(false);
+
+    const copyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(profile.email);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch {
+            window.location.href = `mailto:${profile.email}`;
+        }
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -35,35 +46,43 @@ export default function Contact() {
     return (
         <section id="contact" className="contact">
             <div className="container">
-                    <SectionHeading
-                        number="05"
-                        title={contact.heading1}
-                        subtitle={contact.heading2}
-                    />
+                <SectionHeading
+                    number="05"
+                    title={contact.heading1}
+                    subtitle={contact.heading2}
+                />
 
                 <div className="contact-grid">
                     <Reveal delay={1}>
                         <div className="contact-info">
                             <p>{contact.message}</p>
 
-                            <a
-                                className="contact-email"
-                                href={`mailto:${profile.email}`}
-                            >
-                                {profile.email}
-                            </a>
-
                             <div className="contact-socials">
-                                {socials.map((social) => (
-                                    <a
-                                        key={social.label}
-                                        href={social.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        {social.label} ↗
-                                    </a>
-                                ))}
+                                {socials.map((social) =>
+                                    social.label === "Email" ? (
+                                        <button
+                                            key={social.label}
+                                            type="button"
+                                            className={`social-copy ${
+                                                copied ? "copied" : ""
+                                            }`}
+                                            onClick={copyEmail}
+                                        >
+                                            {copied
+                                                ? "✓ Copied!"
+                                                : "Email ↗"}
+                                        </button>
+                                    ) : (
+                                        <a
+                                            key={social.label}
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {social.label} ↗
+                                        </a>
+                                    )
+                                )}
                             </div>
                         </div>
                     </Reveal>
