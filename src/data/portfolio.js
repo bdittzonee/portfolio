@@ -27,8 +27,8 @@ export const marqueeSkills = [
 
 export const socials = [
     { label: "GitHub", href: "https://github.com/bdittzonee" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/raditya-hafis-abyanka-b9b579364?utm_source=share_via&utm_content=profile&utm_medium=member_ios" },
+    { label: "Instagram", href: "https://www.instagram.com/radityhfis?stkn=MXd6dnlyODA3N2VrbQ%3D%3D&utm_source=qr" },
     { label: "Email", href: "mailto:radityahafisabyanka@gmail.com" },
 ];
 
