@@ -60,7 +60,7 @@ export const skills = [
         items: [
             { name: "Python", icon: "python", color: "3776AB" },
             { name: "C++", icon: "cplusplus", color: "00599C" },
-            { name: "Java", icon: "openjdk", color: "FFFFFF" },
+            { name: "Java", icon: "openjdk", color: "FFA500" },
         ],
     },
     {
@@ -74,7 +74,7 @@ export const skills = [
         category: "Design & Editing",
         items: [
             { name: "Figma", icon: "figma", color: "F24E1E" },
-            { name: "Canva", icon: "canva", color: "00C4CC" },
+            { name: "Canva", icon: "https://svgl.app/library/canva.svg", color: "00C4CC" },
             { name: "UI / UX", icon: null },
         ],
     },
