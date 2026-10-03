@@ -33,10 +33,15 @@
     padding: 8px 18px;
     margin-bottom: 40px;
 
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     border-radius: 999px;
 
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+
+    box-shadow: var(--glass-shadow);
 
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -173,7 +178,13 @@
 }
 
 .btn-ghost {
-    border-color: var(--line);
+    border-color: var(--glass-border);
+
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
     color: var(--text-2);
 }
 

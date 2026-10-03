@@ -134,26 +134,38 @@
 .contact-form textarea {
     width: 100%;
 
-    margin-bottom: 28px;
-    padding: 12px 2px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
 
-    border: none;
-    border-bottom: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
 
     outline: none;
 
-    background: transparent;
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     color: var(--text-1);
 
     font-size: 0.95rem;
 
-    transition: border-color var(--speed-fast) ease;
+    transition:
+        border-color var(--speed-fast) ease,
+        background var(--speed-fast) ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-bottom-color: var(--aurora-1);
+    border-color: rgba(129, 140, 248, 0.55);
+
+    background: var(--glass-bg-strong);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-3);
 }
 
 .contact-form textarea {

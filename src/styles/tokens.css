@@ -30,4 +30,12 @@
     --speed-fast: 0.3s;
     --speed-reveal: 0.9s;
     --speed-ambient: 18s;
+
+        /* ---------- GLASS ---------- */
+    --glass-bg: rgba(129, 140, 248, 0.08);
+    --glass-bg-strong: rgba(129, 140, 248, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --glass-highlight: rgba(255, 255, 255, 0.4);
+    --glass-blur: 16px;
+    --glass-shadow: 0 8px 32px rgba(5, 7, 15, 0.4);
 }

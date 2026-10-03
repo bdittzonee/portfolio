@@ -31,7 +31,7 @@
 
     filter: blur(110px);
 
-    opacity: 0.22;
+    opacity: 0.3;
 
     will-change: transform;
 }
@@ -61,7 +61,7 @@
     width: 40vw;
     height: 40vw;
 
-    opacity: 0.14;
+    opacity: 0.2;
 
     background: var(--blob-a, var(--aurora-1));
 

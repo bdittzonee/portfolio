@@ -52,9 +52,17 @@
 
     height: 100%;
 
-    border: 1px solid var(--line);
+    position: relative;
 
-    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+
+    box-shadow: var(--glass-shadow);
 
     overflow: hidden;
 
@@ -64,12 +72,32 @@
         background 0.5s ease;
 }
 
+.project-slide::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--glass-highlight),
+        transparent
+    );
+}
+
 .project-slide:hover {
     transform: translateY(-6px);
 
     border-color: rgba(255, 255, 255, 0.3);
 
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--glass-bg-strong);
 }
 
 
@@ -260,10 +288,13 @@
     width: 46px;
     height: 46px;
 
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     border-radius: 50%;
 
-    background: transparent;
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
     color: var(--text-2);
 
