@@ -42,7 +42,7 @@ export default function Starfield() {
                     depthIndex,
                     size: min + Math.random() * (max - min),
                     twinkleOffset: Math.random() * Math.PI * 2,
-                    twinkleSpeed: 0.5 + Math.random() * 1.5,
+                    twinkleSpeed: 0.8 + Math.random() * 2.5,
                 };
             });
         };
@@ -76,7 +76,7 @@ export default function Starfield() {
             });
 
             nextShootingAt =
-                performance.now() + 6000 + Math.random() * 6000;
+                performance.now() + 3000 + Math.random() * 4000;
         };
 
         const drawFrame = (time) => {
@@ -104,7 +104,13 @@ export default function Starfield() {
                                 star.twinkleOffset
                         );
 
-                ctx.globalAlpha = depth.alpha * (0.4 + 0.6 * twinkle);
+                ctx.globalAlpha =
+                    depth.alpha * (0.15 + 0.85 * twinkle * twinkle);
+
+                if (twinkle > 0.85) {
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = ctx.fillStyle;
+                }
                 const starColors = [
                     "255, 255, 255",
                     "0, 245, 212",
@@ -120,8 +126,9 @@ export default function Starfield() {
             }
 
             ctx.globalAlpha = 1;
+            ctx.shadowBlur = 0;
 
-            if (time > nextShootingAt && shootingStars.length === 0) {
+            if (time > nextShootingAt && shootingStars.length < 3) {
                 spawnShootingStar();
             }
 
@@ -132,6 +139,15 @@ export default function Starfield() {
                 s.y += s.vy;
                 s.life -= 0.015;
 
+                const trailColors = [
+                    "0, 245, 212",
+                    "124, 58, 237",
+                    "255, 0, 127",
+                ];
+
+                const trailColor =
+                    trailColors[Math.floor(Math.random() * trailColors.length)];
+
                 const gradient = ctx.createLinearGradient(
                     s.x,
                     s.y,
@@ -141,9 +157,13 @@ export default function Starfield() {
 
                 gradient.addColorStop(
                     0,
-                    `rgba(255, 255, 255, ${0.9 * s.life})`
+                    `rgba(255, 255, 255, ${0.95 * s.life})`
                 );
-                gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+                gradient.addColorStop(0.3, `rgba(${trailColor}, ${0.8 * s.life})`);
+                gradient.addColorStop(1, `rgba(${trailColor}, 0)`);
+
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = `rgba(${trailColor}, 0.9)`;
 
                 ctx.strokeStyle = gradient;
                 ctx.lineWidth = 2;
@@ -151,6 +171,7 @@ export default function Starfield() {
                 ctx.moveTo(s.x, s.y);
                 ctx.lineTo(s.x - s.vx * 12, s.y - s.vy * 12);
                 ctx.stroke();
+                ctx.shadowBlur = 0;
             }
 
             rafId = requestAnimationFrame(drawFrame);
@@ -178,6 +199,7 @@ export default function Starfield() {
             }
 
             ctx.globalAlpha = 1;
+            ctx.shadowBlur = 0;
         };
 
         const handleResize = () => {
