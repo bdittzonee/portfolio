@@ -7,6 +7,7 @@ export default function AnimatedBackground() {
         <div className="animated-background" aria-hidden="true">
             <AuroraGlow />
             <Starfield />
+            <div className="neon-grid" />
             <div className="grain" />
         </div>
     );

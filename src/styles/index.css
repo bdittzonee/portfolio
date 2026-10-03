@@ -129,7 +129,9 @@ section {
     transform: scaleX(0);
     transform-origin: left;
 
-    box-shadow: 0 0 12px rgba(129, 140, 248, 0.4);
+    box-shadow:
+    0 0 10px rgba(0, 245, 212, 0.8),
+    0 0 24px rgba(124, 58, 237, 0.6);
 }
 
 

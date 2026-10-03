@@ -408,7 +408,9 @@
 
     vertical-align: -0.08em;
 
-    background: var(--aurora-2);
+    background: var(--aurora-3);
+
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.8);
 
     animation: caretBlink 0.8s step-end infinite;
 }

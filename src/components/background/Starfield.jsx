@@ -105,7 +105,15 @@ export default function Starfield() {
                         );
 
                 ctx.globalAlpha = depth.alpha * (0.4 + 0.6 * twinkle);
-                ctx.fillStyle = "#ffffff";
+                const starColors = [
+                    "255, 255, 255",
+                    "0, 245, 212",
+                    "124, 58, 237",
+                ];
+
+                ctx.fillStyle = `rgb(${
+                    starColors[star.depthIndex % starColors.length]
+                })`;
                 ctx.beginPath();
                 ctx.arc(px, py, star.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -155,7 +163,15 @@ export default function Starfield() {
                 const depth = DEPTHS[star.depthIndex];
 
                 ctx.globalAlpha = depth.alpha;
-                ctx.fillStyle = "#ffffff";
+                const starColors = [
+                    "255, 255, 255",
+                    "0, 245, 212",
+                    "124, 58, 237",
+                ];
+
+                ctx.fillStyle = `rgb(${
+                    starColors[star.depthIndex % starColors.length]
+                })`;
                 ctx.beginPath();
                 ctx.arc(star.x * width, star.y * height, star.size, 0, Math.PI * 2);
                 ctx.fill();

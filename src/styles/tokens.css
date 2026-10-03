@@ -15,10 +15,10 @@
     /* Lines */
     --line: rgba(255, 255, 255, 0.08);
 
-    /* Aurora */
-    --aurora-1: #818cf8;   /* ungu */
-    --aurora-2: #5eead4;   /* teal */
-    --aurora-3: #fbbf24;   /* gold */
+    /* Aurora - NEON */
+    --aurora-1: #7c3aed;
+    --aurora-2: #00f5d4;  
+    --aurora-3: #ff007f;   
 
     /* Fonts */
     --font-display: "Space Grotesk", sans-serif;
@@ -31,11 +31,10 @@
     --speed-reveal: 0.9s;
     --speed-ambient: 18s;
 
-        /* ---------- GLASS ---------- */
-    --glass-bg: rgba(129, 140, 248, 0.08);
-    --glass-bg-strong: rgba(129, 140, 248, 0.15);
-    --glass-border: rgba(255, 255, 255, 0.16);
-    --glass-highlight: rgba(255, 255, 255, 0.4);
-    --glass-blur: 16px;
-    --glass-shadow: 0 8px 32px rgba(5, 7, 15, 0.4);
+    /* ---------- GLASS ---------- */
+    --glass-bg: rgba(124, 58, 237, 0.1);
+    --glass-bg-strong: rgba(124, 58, 237, 0.18);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-highlight: rgba(0, 245, 212, 0.35);
+    --glass-shadow: 0 8px 32px rgba(124, 58, 237, 0.25);
 }
