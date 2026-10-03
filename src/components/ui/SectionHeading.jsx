@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import useInView from "../../hooks/useInView";
 
-// Heading efek mesin ketik: judul diketik karakter demi karakter
-// saat masuk viewport, dengan kursor berkedip.
-export default function SectionHeading({ number, title, subtitle }) {
+// Heading section: langsung judul (typewriter) + subtitle.
+export default function SectionHeading({ title, subtitle }) {
     const [ref, inView] = useInView();
 
     const [typedCount, setTypedCount] = useState(0);
@@ -17,7 +16,7 @@ export default function SectionHeading({ number, title, subtitle }) {
 
         const timeout = setTimeout(() => {
             setTypedCount((count) => count + 1);
-        }, 110);
+        }, 70);
 
         return () => {
             clearTimeout(timeout);
@@ -31,10 +30,6 @@ export default function SectionHeading({ number, title, subtitle }) {
                 inView ? "section-heading--in" : ""
             }`}
         >
-            <p className="section-heading-number">
-                {number} /
-            </p>
-
             <h2>
                 <span className="typing-text">
                     {title.slice(0, typedCount)}

@@ -47,7 +47,6 @@ export default function Contact() {
         <section id="contact" className="contact">
             <div className="container">
                 <SectionHeading
-                    number="05"
                     title={contact.heading1}
                     subtitle={contact.heading2}
                 />

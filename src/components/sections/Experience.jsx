@@ -8,7 +8,6 @@ export default function Experience() {
         <section id="experience" className="experience">
             <div className="container">
                     <SectionHeading
-                        number="04"
                         title="My Journey"
                         subtitle="Experience and milestones"
                     />

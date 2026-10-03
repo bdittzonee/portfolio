@@ -8,7 +8,6 @@ export default function About() {
         <section id="about" className="about">
             <div className="container">
                     <SectionHeading
-                        number="01"
                         title="About Me"
                         subtitle="A little about myself"
                     />

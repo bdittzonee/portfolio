@@ -10,7 +10,6 @@ export default function Projects() {
             <div className="container">
                     <div className="projects-heading-row">
                         <SectionHeading
-                            number="03"
                             title="Projects"
                             subtitle="Selected works"
                         />

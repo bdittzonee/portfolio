@@ -41,7 +41,6 @@ export default function Skills() {
         <section id="skills" className="skills">
             <div className="container">
                 <SectionHeading
-                    number="02"
                     title="Skills"
                     subtitle="What I work with"
                 />

@@ -67,6 +67,9 @@ export default function Navbar() {
                                     goToSection(event, link.href)
                                 }
                             >
+                                <span className="nav-icon">
+                                    {link.icon}
+                                </span>
                                 {link.label}
                             </a>
                         </li>

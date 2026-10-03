@@ -210,3 +210,31 @@
     }
 
 }
+
+/* ---------- NAV ICON ---------- */
+
+.nav-icon {
+    margin-right: 7px;
+
+    font-size: 0.85rem;
+
+    opacity: 0.75;
+
+    transition:
+        opacity var(--speed-fast) ease,
+        transform var(--speed-fast) var(--ease-out);
+}
+
+.navbar-menu a:hover .nav-icon {
+    opacity: 1;
+
+    transform: translateY(-2px);
+}
+
+.navbar-overlay .nav-icon {
+    font-size: 1.4rem;
+
+    margin-right: 12px;
+
+    opacity: 0.9;
+}

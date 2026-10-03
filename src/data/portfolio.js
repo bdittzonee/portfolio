@@ -12,12 +12,12 @@ export const profile = {
 };
 
 export const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "#home", icon: "🏠" },
+    { label: "About", href: "#about", icon: "👤" },
+    { label: "Skills", href: "#skills", icon: "🗂️" },
+    { label: "Projects", href: "#projects", icon: "🚀" },
+    { label: "Experience", href: "#experience", icon: "🧭" },
+    { label: "Contact", href: "#contact", icon: "💬" },
 ];
 
 export const marqueeSkills = [
