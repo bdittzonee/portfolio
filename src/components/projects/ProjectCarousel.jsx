@@ -45,6 +45,14 @@ export default function ProjectCarousel({ projects }) {
         const handleKey = (event) => {
             if (event.key === "ArrowLeft") handlePrev();
             if (event.key === "ArrowRight") handleNext();
+
+            if (event.key === "Enter") {
+                const project = projects[current];
+
+                if (project) {
+                    window.location.hash = `#/project/${project.id}`;
+                }
+            }
         };
 
         window.addEventListener("keydown", handleKey);

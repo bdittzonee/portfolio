@@ -162,15 +162,12 @@
 
     gap: 12px;
 
-    padding: 13px 14px;
+    padding: 14px 16px;
 
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
 
-    background: var(--glass-bg);
-
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    background: transparent;
 
     color: var(--text-2);
 
@@ -180,21 +177,20 @@
 
     transition:
         transform var(--speed-fast) var(--ease-out),
-        background var(--speed-fast) ease,
         border-color var(--speed-fast) ease,
         color var(--speed-fast) ease;
 }
 
 .skills-folder:hover {
-    transform: translateX(4px);
+    transform: translateX(6px);
+
+    border-color: var(--accent-dim);
 
     color: var(--text-1);
 }
 
 .skills-folder.active {
-    background: var(--glass-bg-strong);
-
-    border-color: rgba(0, 245, 212, 0.45);
+    border-color: var(--accent);
 
     color: var(--text-1);
 }
@@ -244,17 +240,12 @@
 
     min-height: 320px;
 
-    padding: 36px;
+    padding: 40px;
 
-    border: 1px solid var(--glass-border);
-    border-radius: 14px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
 
-    background: var(--glass-bg);
-
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-
-    box-shadow: var(--glass-shadow);
+    background: transparent;
 
     animation: panelIn 0.45s var(--ease-out);
 }
@@ -324,12 +315,12 @@
 
     gap: 14px;
 
-    padding: 24px 12px;
+    padding: 26px 12px;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
 
-    background: rgba(5, 7, 15, 0.55);
+    background: transparent;
 
     transition:
         transform var(--speed-fast) var(--ease-out),
@@ -340,9 +331,7 @@
 .skills-item:hover {
     transform: translateY(-4px);
 
-    border-color: rgba(0, 245, 212, 0.5);
-
-    background: rgba(5, 7, 15, 0.75);
+    border-color: var(--accent-dim);
 }
 
 .skills-item-icon {

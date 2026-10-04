@@ -18,6 +18,11 @@ export default function ProjectSlide({ project }) {
             to={`/project/${project.id}`}
             className="project-slide"
         >
+            <span className="project-bracket project-bracket--tl" />
+            <span className="project-bracket project-bracket--tr" />
+            <span className="project-bracket project-bracket--bl" />
+            <span className="project-bracket project-bracket--br" />
+
             <div className="project-slide-image">
                 <ProjectImage image={project.image} title={project.title} />
             </div>
