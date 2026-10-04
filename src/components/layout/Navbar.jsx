@@ -46,18 +46,25 @@ export default function Navbar() {
 
         const id = href.replace("#", "");
 
+        const goTo = () => {
+            const element = document.getElementById(id);
+
+            if (element) {
+                // Cari instance lenis yang dipasang di window
+                if (window.__lenis) {
+                    window.__lenis.scrollTo(element, { offset: -80 });
+                } else {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        };
+
         if (location.pathname !== "/") {
             navigate("/");
 
-            setTimeout(() => {
-                document
-                    .getElementById(id)
-                    ?.scrollIntoView({ behavior: "smooth" });
-            }, 100);
+            setTimeout(goTo, 100);
         } else {
-            document
-                .getElementById(id)
-                ?.scrollIntoView({ behavior: "smooth" });
+            goTo();
         }
     };
 
