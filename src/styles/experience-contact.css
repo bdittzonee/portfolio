@@ -1,12 +1,47 @@
-/* =====================================================
-   EXPERIENCE — timeline
-   ===================================================== */
+/* ---------- TIMELINE (line-draw) ---------- */
 
 .timeline {
+    position: relative;
+
     max-width: 760px;
+
+    padding-left: 32px;
+}
+
+.timeline-line-base {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 1px;
+
+    background: var(--line);
+}
+
+.timeline-line-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 1px;
+
+    background: var(--accent);
+
+    transform: scaleY(0);
+    transform-origin: top;
+
+    transition: transform 2s var(--ease-out) 0.2s;
+}
+
+.timeline-line-fill.in {
+    transform: scaleY(1);
 }
 
 .timeline-item {
+    position: relative;
+
     display: grid;
 
     grid-template-columns: 130px 1fr;
@@ -19,33 +54,44 @@
 }
 
 .timeline-year {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-
     font-family: var(--font-mono);
     font-size: 1rem;
 
     color: var(--text-2);
+
+    padding-top: 4px;
 }
 
 .timeline-dot {
+    position: absolute;
+
+    left: -36px;
+    top: 44px;
+
     width: 8px;
     height: 8px;
-
-    margin-top: 6px;
 
     border-radius: 50%;
 
     background: var(--text-3);
-
-    flex-shrink: 0;
 }
 
 .timeline-dot--now {
-    background: var(--aurora-3);
+    background: var(--accent);
 
-    animation: badgePulse 2s ease-in-out infinite;
+    animation: dotPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(201, 169, 110, 0);
+    }
 }
 
 .timeline-content h3 {
@@ -137,15 +183,12 @@
     margin-bottom: 20px;
     padding: 14px 16px;
 
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
 
     outline: none;
 
-    background: var(--glass-bg);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: transparent;
 
     color: var(--text-1);
 
@@ -158,9 +201,9 @@
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: rgba(129, 140, 248, 0.55);
+    border-color: var(--accent-dim);
 
-    background: var(--glass-bg-strong);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .contact-form input::placeholder,
@@ -264,7 +307,7 @@
 }
 
 .form-status--ok {
-    color: var(--aurora-2);
+    color: var(--accent);
 }
 
 .form-status--err {
@@ -297,9 +340,23 @@
 }
 
 .contact-socials .social-copy:hover {
-    color: var(--text-1);
+    color: var(--accent);
 }
 
 .contact-socials .social-copy.copied {
-    color: var(--aurora-2);
+    color: var(--accent);
+}
+
+.footer-time {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+
+    color: var(--text-3);
+
+    font-variant-numeric: tabular-nums;
+}
+
+.footer-top:hover {
+    color: var(--accent);
 }

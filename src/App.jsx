@@ -4,6 +4,7 @@ import AnimatedBackground from "./components/background/AnimatedBackground";
 import ScrollProgress from "./components/ui/ScrollProgress";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import CustomCursor from "./components/ui/CustomCursor";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 
@@ -21,6 +22,7 @@ function App() {
     return (
         <>
             <AnimatedBackground />
+            <CustomCursor />
             <ScrollProgress />
             <ScrollToTop />
             <Navbar />

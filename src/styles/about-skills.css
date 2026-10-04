@@ -215,7 +215,7 @@
 
     padding: 0 6px;
 
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--line);
     border-radius: 999px;
 
     background: rgba(255, 255, 255, 0.05);
@@ -225,11 +225,11 @@
 }
 
 .skills-folder.active .skills-folder-count {
-    background: var(--aurora-1);
+    background: var(--accent);
 
     border-color: transparent;
 
-    color: #ffffff;
+    color: var(--bg-0);
 }
 
 
@@ -272,7 +272,7 @@
     width: 7px;
     height: 7px;
 
-    background: var(--bg-1);
+    background: var(--accent-dim);
 
     border: 1px solid rgba(0, 245, 212, 0.7);
 }
@@ -442,9 +442,7 @@
 
     vertical-align: -0.08em;
 
-    background: var(--aurora-3);
-
-    box-shadow: 0 0 8px rgba(255, 0, 127, 0.8);
+    background: var(--accent);
 
     animation: caretBlink 0.8s step-end infinite;
 }
