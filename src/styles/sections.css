@@ -22,100 +22,35 @@
     align-items: center;
 }
 
-
-/* ---------- BADGE ---------- */
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 8px 18px;
-    margin-bottom: 40px;
-
-    border: 1px solid var(--glass-border);
-    border-radius: 999px;
-
-    background: var(--glass-bg);
-
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-
-    box-shadow: var(--glass-shadow);
-
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    color: var(--text-2);
-}
-
-.hero-badge-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-
-    background: var(--aurora-3);
-
-    animation: badgePulse 2s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5);
-    }
-
-    50% {
-        box-shadow: 0 0 0 6px rgba(251, 191, 36, 0);
-    }
-}
-
-
-/* ---------- GREETING & TITLE ---------- */
-
-.hero-greeting {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-
-    color: var(--text-3);
-
-    margin-bottom: 20px;
-}
+/* ---------- TITLE ---------- */
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 9vw, 7rem);
-    font-weight: 700;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 600;
     line-height: 0.95;
     letter-spacing: -3px;
 
     margin-bottom: 28px;
 }
 
-.hero-title-gradient {
+.hero-line {
     display: block;
-
-    background: linear-gradient(
-        120deg,
-        var(--text-1) 0%,
-        var(--aurora-1) 50%,
-        var(--aurora-2) 100%
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-
-    filter: drop-shadow(0 0 24px rgba(124, 58, 237, 0.45));
 }
 
+.hero-letter {
+    display: inline-block;
+
+    transition:
+        transform 0.5s var(--ease-out),
+        color 0.4s ease;
+}
+
+.hero-title:hover .hero-letter {
+    transform: translateY(-10px);
+
+    color: var(--accent);
+}
 
 /* ---------- ROLE & TAGLINE ---------- */
 
@@ -195,79 +130,6 @@
     color: var(--text-1);
 }
 
-
-/* ---------- MARQUEE ---------- */
-
-.hero-marquee {
-    position: absolute;
-    bottom: 70px;
-    left: 0;
-    width: 100%;
-
-    overflow: hidden;
-
-    opacity: 0.35;
-
-    mask-image: linear-gradient(
-        90deg,
-        transparent,
-        #000 15%,
-        #000 85%,
-        transparent
-    );
-
-    -webkit-mask-image: linear-gradient(
-        90deg,
-        transparent,
-        #000 15%,
-        #000 85%,
-        transparent
-    );
-}
-
-.hero-marquee-track {
-    display: flex;
-    gap: 40px;
-
-    width: max-content;
-
-    animation: marqueeMove 30s linear infinite;
-}
-
-.hero-marquee-track span {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    color: var(--text-2);
-
-    white-space: nowrap;
-}
-
-.hero-marquee-track em {
-    font-style: normal;
-    font-size: 0.6rem;
-
-    color: var(--aurora-1);
-}
-
-@keyframes marqueeMove {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-
 /* ---------- SCROLL INDICATOR ---------- */
 
 .hero-scroll {
@@ -322,8 +184,60 @@
         max-width: 300px;
     }
 
-    .hero-marquee {
-        bottom: 90px;
-    }
+}
 
+/* ---------- HERO META ---------- */
+
+.hero-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+
+    color: var(--text-3);
+
+    margin-bottom: 32px;
+}
+
+
+/* ---------- MAGNETIC BUTTONS ---------- */
+
+.btn-solid {
+    background: var(--text-1);
+    color: var(--bg-0);
+
+    border: 1px solid var(--text-1);
+}
+
+.btn-solid:hover {
+    box-shadow: 0 0 24px rgba(201, 169, 110, 0.15);
+}
+
+.btn-ghost {
+    border-color: var(--line);
+
+    background: transparent;
+
+    color: var(--text-2);
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent-dim);
+
+    color: var(--text-1);
+}
+
+.btn {
+    will-change: transform;
+}
+
+
+/* ---------- HERO SCROLL (restyle) ---------- */
+
+.hero-scroll p {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--text-3);
 }

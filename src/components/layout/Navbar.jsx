@@ -1,7 +1,21 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks, profile } from "../../data/portfolio";
+import useJakartaTime from "../../hooks/useJakartaTime";
 import "../../styles/layout.css";
+
+function NavLinkItem({ link, onClick }) {
+    return (
+        <a href={link.href} onClick={onClick} className="nav-roll">
+            <span className="nav-roll-track">
+                <span className="nav-roll-label">{link.label}</span>
+                <span className="nav-roll-label nav-roll-label--clone">
+                    {link.label}
+                </span>
+            </span>
+        </a>
+    );
+}
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -9,6 +23,8 @@ export default function Navbar() {
 
     const location = useLocation();
     const navigate = useNavigate();
+
+    const jakartaTime = useJakartaTime();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,7 +39,6 @@ export default function Navbar() {
         };
     }, []);
 
-    // Kalau di halaman detail: pulang dulu, baru scroll ke section
     const goToSection = (event, href) => {
         event.preventDefault();
 
@@ -61,20 +76,19 @@ export default function Navbar() {
                 <ul className="navbar-menu">
                     {navLinks.map((link) => (
                         <li key={link.label}>
-                            <a
-                                href={link.href}
+                            <NavLinkItem
+                                link={link}
                                 onClick={(event) =>
                                     goToSection(event, link.href)
                                 }
-                            >
-                                <span className="nav-icon">
-                                    {link.icon}
-                                </span>
-                                {link.label}
-                            </a>
+                            />
                         </li>
                     ))}
                 </ul>
+
+                <span className="navbar-time">
+                    JKT {jakartaTime}
+                </span>
 
                 <button
                     className={`navbar-toggle ${menuOpen ? "open" : ""}`}
@@ -94,18 +108,19 @@ export default function Navbar() {
                             key={link.label}
                             style={{ transitionDelay: `${index * 0.06}s` }}
                         >
-                            <a
-                                href={link.href}
+                            <NavLinkItem
+                                link={link}
                                 onClick={(event) =>
                                     goToSection(event, link.href)
                                 }
-                            >
-                                <span>0{index + 1}</span>
-                                {link.label}
-                            </a>
+                            />
                         </li>
                     ))}
                 </ul>
+
+                <span className="navbar-overlay-time">
+                    JAKARTA — {jakartaTime} WIB
+                </span>
             </div>
         </header>
     );

@@ -211,30 +211,86 @@
 
 }
 
-/* ---------- NAV ICON ---------- */
+/* ---------- NAV TEXT ROLL ---------- */
 
-.nav-icon {
-    margin-right: 7px;
+.nav-roll {
+    display: inline-block;
+
+    overflow: hidden;
+
+    height: 1.2em;
+
+    line-height: 1.2;
+}
+
+.nav-roll-track {
+    display: block;
+
+    transition: transform var(--speed-fast) var(--ease-out);
+}
+
+.nav-roll:hover .nav-roll-track {
+    transform: translateY(-50%);
+}
+
+.nav-roll-label {
+    display: block;
+
+    height: 1.2em;
 
     font-size: 0.85rem;
 
-    opacity: 0.75;
+    color: var(--text-2);
 
-    transition:
-        opacity var(--speed-fast) ease,
-        transform var(--speed-fast) var(--ease-out);
+    transition: color var(--speed-fast) ease;
 }
 
-.navbar-menu a:hover .nav-icon {
-    opacity: 1;
-
-    transform: translateY(-2px);
+.nav-roll:hover .nav-roll-label {
+    color: var(--text-1);
 }
 
-.navbar-overlay .nav-icon {
-    font-size: 1.4rem;
+.nav-roll-label--clone {
+    color: var(--accent);
+}
 
-    margin-right: 12px;
 
-    opacity: 0.9;
+/* ---------- NAVBAR TIME ---------- */
+
+.navbar-time {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+
+    color: var(--text-3);
+
+    margin-left: 28px;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.navbar-overlay-time {
+    position: absolute;
+
+    bottom: 48px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+
+    color: var(--text-3);
+}
+
+
+/* ---------- SCROLLED (ulang, gaya baru) ---------- */
+
+.navbar--scrolled {
+    background: rgba(10, 10, 10, 0.75);
+
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+
+    border-bottom: 1px solid var(--line);
 }

@@ -1,21 +1,61 @@
-import { profile, marqueeSkills } from "../../data/portfolio";
+import { profile } from "../../data/portfolio";
+import useMagnetic from "../../hooks/useMagnetic";
 import "../../styles/sections.css";
 
+function MagneticButton({ href, className, children }) {
+    const { attach, handlers } = useMagnetic(0.25, 90);
+
+    return (
+        <a
+            href={href}
+            ref={attach}
+            className={className}
+            onMouseMove={handlers.onMouseMove}
+            onMouseLeave={handlers.onMouseLeave}
+        >
+            {children}
+        </a>
+    );
+}
+
 export default function Hero() {
+    const firstName = profile.firstName.split("");
+    const lastName = profile.lastName.split("");
+
     return (
         <section id="home" className="hero">
             <div className="hero-content">
-                <div className="hero-badge">
-                    <span className="hero-badge-dot" />
-                    Available for work
-                </div>
-
-                <p className="hero-greeting">Hi, I'm —</p>
+                <p className="hero-meta">
+                    PORTFOLIO — 2026
+                </p>
 
                 <h1 className="hero-title">
-                    {profile.firstName}
-                    <span className="hero-title-gradient">
-                        {profile.lastName}
+                    <span className="hero-line">
+                        {firstName.map((letter, index) => (
+                            <span
+                                className="hero-letter"
+                                key={`f-${index}`}
+                                style={{
+                                    transitionDelay: `${index * 0.02}s`,
+                                }}
+                            >
+                                {letter}
+                            </span>
+                        ))}
+                    </span>
+
+                    <span className="hero-line">
+                        {lastName.map((letter, index) => (
+                            <span
+                                className="hero-letter"
+                                key={`l-${index}`}
+                                style={{
+                                    transitionDelay: `${index * 0.02}s`,
+                                }}
+                            >
+                                {letter}
+                            </span>
+                        ))}
                     </span>
                 </h1>
 
@@ -24,25 +64,19 @@ export default function Hero() {
                 <p className="hero-tagline">{profile.tagline}</p>
 
                 <div className="hero-buttons">
-                    <a href="#projects" className="btn btn-solid">
+                    <MagneticButton
+                        href="#projects"
+                        className="btn btn-solid"
+                    >
                         Explore My Work
-                    </a>
-                    <a href="#about" className="btn btn-ghost">
-                        About Me →
-                    </a>
-                </div>
-            </div>
+                    </MagneticButton>
 
-            <div className="hero-marquee" aria-hidden="true">
-                <div className="hero-marquee-track">
-                    {[...marqueeSkills, ...marqueeSkills].map(
-                        (skill, index) => (
-                            <span key={index}>
-                                {skill}
-                                <em>✦</em>
-                            </span>
-                        )
-                    )}
+                    <MagneticButton
+                        href="#about"
+                        className="btn btn-ghost"
+                    >
+                        About Me →
+                    </MagneticButton>
                 </div>
             </div>
 
