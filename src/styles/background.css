@@ -52,3 +52,123 @@
 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
 }
+
+/* ---------- COLUMN GUIDES (vibe majalah) ---------- */
+
+.bg-guides {
+    position: absolute;
+    inset: 0;
+
+    width: min(1200px, 92%);
+    margin-inline: auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.bg-guides span {
+    width: 1px;
+    height: 100%;
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(255, 255, 255, 0.05) 18%,
+        rgba(255, 255, 255, 0.05) 82%,
+        transparent
+    );
+}
+
+
+/* ---------- DRIFTING ORBS (ambient hangat) ---------- */
+
+.bg-orb {
+    position: absolute;
+
+    width: 45vw;
+    height: 45vw;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: 0.05;
+
+    will-change: transform;
+}
+
+.bg-orb--1 {
+    top: -10%;
+    right: -12%;
+
+    background: radial-gradient(
+        circle,
+        rgba(201, 169, 110, 0.5),
+        transparent 70%
+    );
+
+    animation: orbDrift1 40s ease-in-out infinite alternate;
+}
+
+.bg-orb--2 {
+    bottom: -15%;
+    left: -12%;
+
+    background: radial-gradient(
+        circle,
+        rgba(201, 169, 110, 0.35),
+        transparent 70%
+    );
+
+    animation: orbDrift2 55s ease-in-out infinite alternate;
+}
+
+@keyframes orbDrift1 {
+
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(-6vw, 8vh) scale(1.15);
+    }
+}
+
+@keyframes orbDrift2 {
+
+    from {
+        transform: translate(0, 0) scale(1.1);
+    }
+
+    to {
+        transform: translate(5vw, -6vh) scale(0.95);
+    }
+}
+
+
+/* ---------- GHOST LETTER (watermark) ---------- */
+
+.bg-ghost {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 58vw;
+
+    line-height: 1;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.025);
+
+    pointer-events: none;
+
+    user-select: none;
+}

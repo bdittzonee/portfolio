@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion";
+import { profile } from "../../data/portfolio";
 import "../../styles/background.css";
 
 // Background minimal: spotlight mengikuti mouse + vignette + grain.
@@ -32,8 +33,23 @@ export default function AnimatedBackground() {
         };
     }, [reducedMotion]);
 
-    return (
+        return (
         <div ref={bgRef} className="animated-background" aria-hidden="true">
+            <div className="bg-guides">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+            </div>
+
+            <div className="bg-orb bg-orb--1" />
+            <div className="bg-orb bg-orb--2" />
+
+            <div className="bg-ghost">
+                {profile.firstName.charAt(0)}
+            </div>
+
             <div className="spotlight" />
             <div className="vignette" />
             <div className="grain" />
