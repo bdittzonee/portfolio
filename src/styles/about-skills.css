@@ -38,7 +38,6 @@
     filter: blur(0);
 }
 
-
 /* =====================================================
    ABOUT
    ===================================================== */
@@ -52,40 +51,16 @@
     align-items: center;
 }
 
-
-/* ---------- IMAGE ---------- */
-
 .about-image {
     position: relative;
-    max-width: 420px;
+    max-width: 380px;
     margin-inline: auto;
-}
 
-.about-image::before {
-    content: "";
+    transform-style: preserve-3d;
 
-    position: absolute;
-    inset: -1px;
+    transition: transform 0.4s var(--ease-out);
 
-    border-radius: 3px;
-
-    background: linear-gradient(
-        135deg,
-        var(--aurora-1),
-        var(--aurora-2)
-    );
-
-    opacity: 0.5;
-}
-
-.about-image {
-    transform: rotate(-2deg);
-
-    transition: transform 0.5s var(--ease-out);
-}
-
-.about-image:hover {
-    transform: rotate(0deg) scale(1.02);
+    will-change: transform;
 }
 
 .about-image img,
@@ -97,24 +72,15 @@
 
     object-fit: cover;
 
-    border-radius: 3px;
+    filter: grayscale(100%) contrast(1.05);
+
+    transition: filter 0.5s ease;
 }
 
-.about-photo-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(255, 255, 255, 0.04);
-
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    color: var(--text-3);
+.about-image:hover img,
+.about-image:hover .about-photo-placeholder {
+    filter: grayscale(0%) contrast(1);
 }
-
 
 /* ---------- TEXT ---------- */
 
@@ -528,4 +494,76 @@
 .section-heading--in .section-heading-sub {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* =====================================================
+   ABOUT — NOW (status jujur)
+   ===================================================== */
+
+.about-now {
+    margin-top: 90px;
+
+    padding-top: 32px;
+
+    border-top: 1px solid var(--line);
+
+    display: grid;
+    grid-template-columns: 120px 1fr;
+
+    gap: 32px;
+
+    align-items: start;
+}
+
+.about-now-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+
+    color: var(--accent);
+}
+
+.about-now-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.about-now-list li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+
+    gap: 16px;
+
+    font-size: 0.9rem;
+}
+
+.about-now-key {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: var(--text-3);
+
+    padding-top: 2px;
+}
+
+.about-now-value {
+    color: var(--text-2);
+}
+
+@media (max-width: 600px) {
+
+    .about-now {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .about-now-list li {
+        grid-template-columns: 90px 1fr;
+    }
+
 }

@@ -6,7 +6,7 @@ export const profile = {
     firstName: "Raditya",
     lastName: "Hafis Abyanka",
     role: "Information Systems Student",
-    tagline: "Exploring Technology, Design, and Digital Creativity.",
+    tagline: "I break things, then build them better.",
     email: "radityahafisabyanka@gmail.com",
     location: "Indonesia",
 };
@@ -34,15 +34,20 @@ export const socials = [
 
 export const about = {
     intro:
-        "Mahasiswa Sistem Informasi yang tertarik pada teknologi, desain, dan pengembangan solusi digital yang interaktif.",
+        "Saya mahasiswa Sistem Informasi yang menghabiskan malam-malamnya membangun hal-hal kecil yang kadang berfungsi.",
     description:
-        "Saya suka mengeksplorasi teknologi dan desain untuk menemukan cara baru dalam memecahkan masalah dan menciptakan sesuatu yang bermanfaat. Di portfolio ini, saya membagikan perjalanan, proyek, dan berbagai hal yang sedang saya pelajari.",
+        "Mulai dari penasaran kenapa website bisa jalan, ujung-ujungnya ketagihan ngoding. Sekarang fokus membangun web experiences sambil belajar membuat keputusan desain yang lebih baik.",
     details: [
         { label: "Based in", value: "Indonesia" },
-        { label: "Focus", value: "Technology & Design" },
-        { label: "Currently", value: "Learning & Building" },
+        { label: "Focus", value: "Web & Interface" },
+        { label: "Status", value: "Belajar & Membangun" },
     ],
     photo: "/images/profile.jpg",
+    now: [
+        { label: "Learning", value: "React Router patterns" },
+        { label: "Building", value: "Portfolio v3 — ini yang sedang kamu lihat" },
+        { label: "Obsessing", value: "Detail hover yang presisi" },
+    ],
 };
 
 export const skills = [

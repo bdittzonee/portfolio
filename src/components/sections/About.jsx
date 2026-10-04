@@ -1,20 +1,28 @@
 import { about, profile } from "../../data/portfolio";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../ui/Reveal";
+import useTilt from "../../hooks/useTilt";
 import "../../styles/about-skills.css";
 
 export default function About() {
+    const { attach, handlers } = useTilt(6, 1.02);
+
     return (
         <section id="about" className="about">
             <div className="container">
-                    <SectionHeading
-                        title="About Me"
-                        subtitle="A little about myself"
-                    />
+                <SectionHeading
+                    title="About"
+                    subtitle="Sedikit tentang saya"
+                />
 
                 <div className="about-grid">
                     <Reveal delay={1} className="about-image-wrap">
-                        <div className="about-image">
+                        <div
+                            ref={attach}
+                            className="about-image"
+                            onMouseMove={handlers.onMouseMove}
+                            onMouseLeave={handlers.onMouseLeave}
+                        >
                             {about.photo ? (
                                 <img
                                     src={about.photo}
@@ -52,6 +60,29 @@ export default function About() {
                         </Reveal>
                     </div>
                 </div>
+
+                {about.now && about.now.length > 0 && (
+                    <Reveal delay={2}>
+                        <div className="about-now">
+                            <p className="about-now-label">
+                                NOW —
+                            </p>
+
+                            <ul className="about-now-list">
+                                {about.now.map((item) => (
+                                    <li key={item.label}>
+                                        <span className="about-now-key">
+                                            {item.label}
+                                        </span>
+                                        <span className="about-now-value">
+                                            {item.value}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </Reveal>
+                )}
             </div>
         </section>
     );

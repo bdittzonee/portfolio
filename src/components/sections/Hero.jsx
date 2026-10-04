@@ -53,7 +53,7 @@ export default function Hero() {
                                     transitionDelay: `${index * 0.02}s`,
                                 }}
                             >
-                                {letter}
+                                {letter === " " ? "\u00A0" : letter}
                             </span>
                         ))}
                     </span>
