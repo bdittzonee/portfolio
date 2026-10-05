@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { profile } from "../../data/portfolio";
 import useMagnetic from "../../hooks/useMagnetic";
+import HeroSparks from "./HeroSparks";
 import "../../styles/sections.css";
 
 function MagneticButton({ href, className, children }) {
@@ -19,6 +21,8 @@ function MagneticButton({ href, className, children }) {
 }
 
 export default function Hero() {
+    const [nameHover, setNameHover] = useState(false);
+
     const firstName = profile.firstName.split("");
     const lastName = profile.lastName.split("");
 
@@ -29,7 +33,11 @@ export default function Hero() {
                     PORTFOLIO — 2026
                 </p>
 
-                <h1 className="hero-title">
+                <h1
+                    className="hero-title"
+                    onMouseEnter={() => setNameHover(true)}
+                    onMouseLeave={() => setNameHover(false)}
+                >
                     <span className="hero-line">
                         {firstName.map((letter, index) => (
                             <span
@@ -58,6 +66,8 @@ export default function Hero() {
                         ))}
                     </span>
                 </h1>
+
+                <HeroSparks active={nameHover} />
 
                 <p className="hero-role">{profile.role}</p>
 
