@@ -55,11 +55,13 @@
 
 .timeline-year {
     font-family: var(--font-mono);
-    font-size: 1rem;
+    font-size: 0.95rem;
 
     color: var(--text-2);
 
     padding-top: 4px;
+
+    font-variant-numeric: tabular-nums;
 }
 
 .timeline-dot {
@@ -95,11 +97,13 @@
 }
 
 .timeline-content h3 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    font-size: var(--text-h3);
+    font-weight: 400;
 
-    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+
+    margin-bottom: 12px;
 }
 
 .timeline-content p {
@@ -133,6 +137,8 @@
     line-height: 1.8;
 
     margin-bottom: 36px;
+
+    font-size: var(--text-body);
 }
 
 .contact-socials {

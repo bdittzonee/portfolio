@@ -26,12 +26,12 @@
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-size: var(--text-display);
     font-weight: 600;
-    line-height: 0.95;
-    letter-spacing: -3px;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
 
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .hero-line {
@@ -66,14 +66,15 @@
 }
 
 .hero-tagline {
-    max-width: 520px;
+    max-width: 440px;
+
+    font-size: var(--text-body);
+    line-height: 1.85;
 
     color: var(--text-2);
-    line-height: 1.8;
 
-    margin-bottom: 44px;
+    margin-bottom: 40px;
 }
-
 
 /* ---------- BUTTONS ---------- */
 
@@ -190,8 +191,8 @@
 
 .hero-meta {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 3px;
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
 
     color: var(--text-3);
 
