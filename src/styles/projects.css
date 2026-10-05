@@ -22,7 +22,7 @@
 
     width: 100%;
 
-    padding: 10px 4vw 20px;
+    padding: 10px 4vw 30px;
 
     overflow-x: auto;
 
@@ -61,17 +61,87 @@
 
     overflow: hidden;
 
+    transform-style: preserve-3d;
+
     transition:
-        transform 0.5s var(--ease-out),
-        border-color 0.5s ease;
+        transform 0.25s var(--ease-out),
+        border-color 0.3s ease;
 }
 
 .project-slide:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--hover-border);
 }
 
 
-/* ---------- IMAGE 16:9 ---------- */
+/* ---------- GAME BRACKETS ---------- */
+
+.project-bracket {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    border: 0 solid var(--accent);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.project-bracket--tl {
+    top: 8px;
+    left: 8px;
+
+    border-top-width: 1px;
+    border-left-width: 1px;
+
+    transform: translate(10px, 10px);
+}
+
+.project-bracket--tr {
+    top: 8px;
+    right: 8px;
+
+    border-top-width: 1px;
+    border-right-width: 1px;
+
+    transform: translate(-10px, 10px);
+}
+
+.project-bracket--bl {
+    bottom: 8px;
+    left: 8px;
+
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+
+    transform: translate(10px, -10px);
+}
+
+.project-bracket--br {
+    bottom: 8px;
+    right: 8px;
+
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+
+    transform: translate(-10px, -10px);
+}
+
+.project-slide:hover .project-bracket {
+    opacity: 1;
+
+    transform: translate(0, 0);
+
+    transition:
+        transform 0.35s var(--ease-out),
+        opacity 0.2s ease;
+}
+
+
+/* ---------- IMAGE ---------- */
 
 .project-slide-image {
     aspect-ratio: 16 / 9;
@@ -82,6 +152,7 @@
 
     position: relative;
 }
+
 .project-slide-image img {
     width: 100%;
     height: 100%;
@@ -131,7 +202,7 @@
     gap: 10px;
 
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: var(--text-label);
     letter-spacing: 2px;
     text-transform: uppercase;
 
@@ -188,22 +259,8 @@
     color: var(--accent);
 }
 
-.project-slide-arrow {
-    color: var(--text-3);
-
-    transition:
-        transform 0.4s var(--ease-out),
-        color 0.4s ease;
-}
-
-.project-slide:hover .project-slide-arrow {
-    transform: translate(4px, -4px);
-
-    color: var(--text-1);
-}
-
 .project-slide-info > p {
-    font-size: 0.9rem;
+    font-size: var(--text-small);
 
     line-height: 1.7;
 
@@ -310,7 +367,7 @@
 
     border-color: var(--accent);
 
-    color: var(--bg-0);
+    color: var(--bg-1);
 }
 
 
@@ -320,6 +377,14 @@
 
     .carousel-cell {
         flex: 0 0 70%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .project-slide-image img {
+        transform: scale(1);
     }
 
 }
@@ -334,86 +399,4 @@
         margin-top: 0;
     }
 
-}
-
-/* =====================================================
-   GAME SELECTION — corner brackets
-   ===================================================== */
-
-.project-slide {
-    transform-style: preserve-3d;
-
-    transition:
-        transform 0.25s var(--ease-out),
-        border-color 0.3s ease;
-}
-
-.project-bracket {
-    position: absolute;
-
-    width: 18px;
-    height: 18px;
-
-    border: 0 solid var(--accent);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 2;
-}
-
-.project-bracket--tl {
-    top: 8px;
-    left: 8px;
-
-    border-top-width: 1px;
-    border-left-width: 1px;
-
-    transform: translate(10px, 10px);
-}
-
-.project-bracket--tr {
-    top: 8px;
-    right: 8px;
-
-    border-top-width: 1px;
-    border-right-width: 1px;
-
-    transform: translate(-10px, 10px);
-}
-
-.project-bracket--bl {
-    bottom: 8px;
-    left: 8px;
-
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-
-    transform: translate(10px, -10px);
-}
-
-.project-bracket--br {
-    bottom: 8px;
-    right: 8px;
-
-    border-bottom-width: 1px;
-    border-right-width: 1px;
-
-    transform: translate(-10px, -10px);
-}
-
-.project-slide:hover .project-bracket {
-    opacity: 1;
-
-    transform: translate(0, 0);
-}
-
-.project-slide:hover .project-bracket--tl,
-.project-slide:hover .project-bracket--tr,
-.project-slide:hover .project-bracket--bl,
-.project-slide:hover .project-bracket--br {
-    transition:
-        transform 0.35s var(--ease-out),
-        opacity 0.2s ease;
 }

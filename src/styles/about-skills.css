@@ -5,7 +5,7 @@
 .section-heading {
     max-width: 700px;
 
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .section-heading h2 {
@@ -18,7 +18,69 @@
     line-height: 1.08;
 
     margin-bottom: 16px;
+
+    min-height: 1.1em;
 }
+
+.typing-text {
+    display: inline;
+}
+
+.typing-caret {
+    display: inline-block;
+
+    width: 0.08em;
+    min-width: 3px;
+    height: 0.9em;
+
+    margin-left: 0.08em;
+
+    vertical-align: -0.08em;
+
+    background: var(--accent);
+
+    animation: caretBlink 0.8s step-end infinite;
+}
+
+.typing-caret--idle {
+    animation-duration: 1.4s;
+
+    opacity: 0.7;
+}
+
+@keyframes caretBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.section-heading-sub {
+    display: inline-block;
+
+    font-family: var(--font-body);
+    font-size: 1rem;
+
+    color: var(--text-2);
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.6s var(--ease-out) 0.3s,
+        transform 0.6s var(--ease-out) 0.3s;
+}
+
+.section-heading--in .section-heading-sub {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* =====================================================
    SCROLL REVEAL
@@ -41,6 +103,7 @@
     filter: blur(0);
 }
 
+
 /* =====================================================
    ABOUT
    ===================================================== */
@@ -49,10 +112,13 @@
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
 
-    gap: 100px;
+    gap: 60px;
 
     align-items: center;
 }
+
+
+/* ---------- IMAGE (tilt 3D + B/W) ---------- */
 
 .about-image {
     position: relative;
@@ -75,6 +141,8 @@
 
     object-fit: cover;
 
+    border-radius: 2px;
+
     filter: grayscale(100%) contrast(1.05);
 
     transition: filter 0.5s ease;
@@ -84,6 +152,22 @@
 .about-image:hover .about-photo-placeholder {
     filter: grayscale(0%) contrast(1);
 }
+
+.about-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface-soft);
+
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--text-3);
+}
+
 
 /* ---------- TEXT ---------- */
 
@@ -142,8 +226,65 @@
 }
 
 
+/* ---------- NOW ---------- */
+
+.about-now {
+    margin-top: 90px;
+
+    padding-top: 32px;
+
+    border-top: 1px solid var(--line);
+
+    display: grid;
+    grid-template-columns: 120px 1fr;
+
+    gap: 32px;
+
+    align-items: start;
+}
+
+.about-now-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+
+    color: var(--accent);
+}
+
+.about-now-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.about-now-list li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+
+    gap: 16px;
+
+    font-size: 0.9rem;
+}
+
+.about-now-key {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: var(--text-3);
+
+    padding-top: 2px;
+}
+
+.about-now-value {
+    color: var(--text-2);
+}
+
+
 /* =====================================================
-   SKILLS — folder tabs + canvas panel (glass)
+   SKILLS — folder tabs + canvas panel (hairline)
    ===================================================== */
 
 .skills-layout {
@@ -227,7 +368,7 @@
     border: 1px solid var(--line);
     border-radius: 999px;
 
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-soft);
 
     font-family: var(--font-mono);
     font-size: 0.65rem;
@@ -238,7 +379,7 @@
 
     border-color: transparent;
 
-    color: var(--bg-0);
+    color: var(--bg-1);
 }
 
 
@@ -273,7 +414,7 @@
 }
 
 
-/* ---------- CORNER HANDLES (vibe design tool) ---------- */
+/* ---------- CORNER HANDLES ---------- */
 
 .skills-panel-corners span {
     position: absolute;
@@ -281,9 +422,9 @@
     width: 7px;
     height: 7px;
 
-    background: var(--accent-dim);
+    background: var(--bg-1);
 
-    border: 1px solid rgba(0, 245, 212, 0.7);
+    border: 1px solid var(--accent-dim);
 }
 
 .skills-panel-corners span:nth-child(1) {
@@ -360,13 +501,6 @@
         inset 0 0 0 1px rgba(5, 7, 15, 0.08);
 }
 
-.skills-item-icon {
-    width: 34px;
-    height: 34px;
-
-    object-fit: contain;
-}
-
 .skills-item-icon--text {
     display: grid;
     place-items: center;
@@ -396,26 +530,17 @@
         gap: 60px;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
     .skills-layout {
-    grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 
 }
 
 @media (max-width: 600px) {
 
-    .about-details {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
     .skills-folders {
-    flex-direction: row;
-    flex-wrap: wrap;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .skills-folder {
@@ -426,134 +551,10 @@
         padding: 24px 16px;
     }
 
-}
-
-/* =====================================================
-   HEADING ANIMATION — typewriter
-   ===================================================== */
-
-.section-heading h2 {
-    min-height: 1.1em;
-}
-
-.typing-text {
-    display: inline;
-}
-
-.typing-caret {
-    display: inline-block;
-
-    width: 0.08em;
-    min-width: 3px;
-    height: 0.9em;
-
-    margin-left: 0.08em;
-
-    vertical-align: -0.08em;
-
-    background: var(--accent);
-
-    animation: caretBlink 0.8s step-end infinite;
-}
-
-.typing-caret--idle {
-    animation-duration: 1.4s;
-
-    opacity: 0.7;
-}
-
-@keyframes caretBlink {
-
-    0%,
-    100% {
-        opacity: 1;
+    .about-details {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-.section-heading-sub {
-    display: inline-block;
-
-    font-family: var(--font-body);
-    font-size: 1rem;
-
-    color: var(--text-2);
-
-    opacity: 0;
-    transform: translateY(10px);
-
-    transition:
-        opacity 0.6s var(--ease-out) 0.3s,
-        transform 0.6s var(--ease-out) 0.3s;
-}
-
-.section-heading--in .section-heading-sub {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =====================================================
-   ABOUT — NOW (status jujur)
-   ===================================================== */
-
-.about-now {
-    margin-top: 90px;
-
-    padding-top: 32px;
-
-    border-top: 1px solid var(--line);
-
-    display: grid;
-    grid-template-columns: 120px 1fr;
-
-    gap: 32px;
-
-    align-items: start;
-}
-
-.about-now-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-
-    color: var(--accent);
-}
-
-.about-now-list {
-    display: flex;
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-.about-now-list li {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-
-    gap: 16px;
-
-    font-size: 0.9rem;
-}
-
-.about-now-key {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
-    color: var(--text-3);
-
-    padding-top: 2px;
-}
-
-.about-now-value {
-    color: var(--text-2);
-}
-
-@media (max-width: 600px) {
 
     .about-now {
         grid-template-columns: 1fr;

@@ -3,7 +3,7 @@ import usePrefersReducedMotion from "../../hooks/usePrefersReducedMotion";
 import { profile } from "../../data/portfolio";
 import "../../styles/background.css";
 
-// Background minimal: spotlight mengikuti mouse + vignette + grain.
+// Background: guides + orbs + ghost + spotlight + grain.
 export default function AnimatedBackground() {
     const bgRef = useRef(null);
     const reducedMotion = usePrefersReducedMotion();
@@ -33,7 +33,7 @@ export default function AnimatedBackground() {
         };
     }, [reducedMotion]);
 
-        return (
+    return (
         <div ref={bgRef} className="animated-background" aria-hidden="true">
             <div className="bg-guides">
                 <span />

@@ -1,5 +1,5 @@
 /* =====================================================
-   BACKGROUND — near-black + mouse spotlight + grain
+   BACKGROUND — near-black + spotlight + guides + orbs
    ===================================================== */
 
 .animated-background {
@@ -22,7 +22,7 @@
 
     background: radial-gradient(
         600px circle at var(--spot-x, 50%) var(--spot-y, 30%),
-        rgba(201, 169, 110, 0.06),
+        var(--spot-color),
         transparent 60%
     );
 }
@@ -48,10 +48,11 @@
     position: absolute;
     inset: 0;
 
-    opacity: 0.04;
+    opacity: var(--grain-opacity);
 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
 }
+
 
 /* ---------- COLUMN GUIDES (vibe majalah) ---------- */
 
@@ -75,8 +76,8 @@
     background: linear-gradient(
         180deg,
         transparent,
-        rgba(255, 255, 255, 0.05) 18%,
-        rgba(255, 255, 255, 0.05) 82%,
+        var(--guide-color) 18%,
+        var(--guide-color) 82%,
         transparent
     );
 }
@@ -94,7 +95,7 @@
 
     filter: blur(120px);
 
-    opacity: 0.05;
+    opacity: var(--orb-opacity);
 
     will-change: transform;
 }
@@ -105,7 +106,7 @@
 
     background: radial-gradient(
         circle,
-        rgba(201, 169, 110, 0.5),
+        var(--orb-color),
         transparent 70%
     );
 
@@ -118,7 +119,7 @@
 
     background: radial-gradient(
         circle,
-        rgba(201, 169, 110, 0.35),
+        var(--orb-color-2),
         transparent 70%
     );
 
@@ -166,7 +167,7 @@
 
     color: transparent;
 
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.025);
+    -webkit-text-stroke: 1px var(--ghost-stroke);
 
     pointer-events: none;
 

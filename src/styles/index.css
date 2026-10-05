@@ -1,5 +1,5 @@
 /* =====================================================
-   GLOBAL STYLES
+   GLOBAL STYLES — Quiet Luxury
    ===================================================== */
 
 * {
@@ -44,7 +44,9 @@ textarea {
     font-family: inherit;
 }
 
-/* Layout */
+
+/* ---------- LAYOUT ---------- */
+
 .container {
     width: min(1200px, 92%);
     margin-inline: auto;
@@ -61,7 +63,9 @@ section {
     }
 }
 
-/* Detail premium */
+
+/* ---------- SELECTION & SCROLLBAR ---------- */
+
 ::selection {
     background: var(--accent);
     color: var(--bg-0);
@@ -76,32 +80,16 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--scrollbar-thumb);
     border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
+    opacity: 0.7;
 }
 
-/* Aksesibilitas */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* =====================================================
-   SCROLL PROGRESS BAR
-   ===================================================== */
+/* ---------- SCROLL PROGRESS BAR ---------- */
 
 .scroll-progress {
     position: fixed;
@@ -122,21 +110,18 @@ section {
 
     background: linear-gradient(
         90deg,
-        var(--aurora-1),
-        var(--aurora-2)
+        var(--accent),
+        var(--accent)
     );
 
     transform: scaleX(0);
     transform-origin: left;
 
-    box-shadow:
-    0 0 12px rgba(201, 169, 110, 0.35),
+    box-shadow: 0 0 12px rgba(201, 169, 110, 0.35);
 }
 
 
-/* =====================================================
-   SECTION DIVIDER
-   ===================================================== */
+/* ---------- SECTION DIVIDER ---------- */
 
 .section-divider {
     position: relative;
@@ -162,8 +147,8 @@ section {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(129, 140, 248, 0.45),
-        rgba(94, 234, 212, 0.45),
+        var(--accent-dim),
+        var(--accent-dim),
         transparent
     );
 
@@ -174,4 +159,21 @@ section {
 
 .section-divider-line.in {
     transform: scaleX(1);
+}
+
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

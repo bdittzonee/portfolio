@@ -8,7 +8,7 @@
     --bg-1: #0a0a0a;
 
     /* Text */
-    --text-1: #f2f0eb;                          /* warm ivory */
+    --text-1: #f2f0eb;
     --text-2: rgba(242, 240, 235, 0.55);
     --text-3: rgba(242, 240, 235, 0.3);
 
@@ -39,4 +39,49 @@
     --text-label: 0.68rem;
     --tracking-label: 0.2em;
     --tracking-tight: -0.03em;
+
+    /* ---------- SURFACES & AMBIENT ---------- */
+    --surface-soft: rgba(255, 255, 255, 0.05);
+    --scrolled-bg: rgba(10, 10, 10, 0.75);
+    --scrolled-line: rgba(255, 255, 255, 0.12);
+    --overlay-bg: rgba(5, 7, 15, 0.97);
+    --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+    --input-focus-bg: rgba(255, 255, 255, 0.02);
+    --hover-border: rgba(255, 255, 255, 0.2);
+    --spot-color: rgba(201, 169, 110, 0.06);
+    --guide-color: rgba(255, 255, 255, 0.05);
+    --orb-color: rgba(201, 169, 110, 0.5);
+    --orb-color-2: rgba(201, 169, 110, 0.35);
+    --orb-opacity: 0.05;
+    --ghost-stroke: rgba(255, 255, 255, 0.025);
+    --grain-opacity: 0.04;
+}
+
+/* =====================================================
+   LIGHT THEME
+   ===================================================== */
+
+[data-theme="light"] {
+    --bg-0: #eceae4;
+    --bg-1: #f7f5f0;
+    --text-1: #1c1915;
+    --text-2: rgba(28, 25, 21, 0.62);
+    --text-3: rgba(28, 25, 21, 0.38);
+    --line: rgba(28, 25, 21, 0.1);
+    --accent: #8a6d33;
+    --accent-dim: rgba(138, 109, 51, 0.4);
+    --surface-soft: rgba(28, 25, 21, 0.04);
+    --scrolled-bg: rgba(247, 245, 240, 0.8);
+    --scrolled-line: rgba(28, 25, 21, 0.08);
+    --overlay-bg: rgba(247, 245, 240, 0.97);
+    --scrollbar-thumb: rgba(28, 25, 21, 0.2);
+    --input-focus-bg: rgba(28, 25, 21, 0.03);
+    --hover-border: rgba(28, 25, 21, 0.22);
+    --spot-color: rgba(176, 141, 79, 0.09);
+    --guide-color: rgba(28, 25, 21, 0.05);
+    --orb-color: rgba(201, 169, 110, 0.4);
+    --orb-color-2: rgba(201, 169, 110, 0.28);
+    --orb-opacity: 0.08;
+    --ghost-stroke: rgba(28, 25, 21, 0.04);
+    --grain-opacity: 0.03;
 }

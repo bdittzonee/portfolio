@@ -34,9 +34,9 @@ export const socials = [
 
 export const about = {
     intro:
-        "Saya mahasiswa Sistem Informasi yang menghabiskan malam-malamnya membangun hal-hal kecil yang kadang berfungsi.",
+        "Saya mahasiswa Sistem Informasi yang antusias dalam dunia teknologi dan desain grafis.",
     description:
-        "Mulai dari penasaran kenapa website bisa jalan, ujung-ujungnya ketagihan ngoding. Sekarang fokus membangun web experiences sambil belajar membuat keputusan desain yang lebih baik.",
+        "Saya juga antusias dengan programming, dimana saya merasa programming wajib saya coba. Dan sekarang saya menyukai definisi programming dan fokus membangun web experiences sambil belajar membuat keputusan desain yang lebih baik.",
     details: [
         { label: "Based in", value: "Indonesia" },
         { label: "Focus", value: "Web & Interface" },
@@ -45,7 +45,7 @@ export const about = {
     photo: "/images/profile.jpg",
     now: [
         { label: "Learning", value: "React Router patterns" },
-        { label: "Building", value: "Portfolio v3 — ini yang sedang kamu lihat" },
+        { label: "Building", value: "Portfolio — ini yang sedang kamu lihat" },
         { label: "Obsessing", value: "Detail hover yang presisi" },
     ],
 };

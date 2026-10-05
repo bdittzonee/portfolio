@@ -1,13 +1,20 @@
 import { useEffect, useRef } from "react";
 
 const NEON_COLORS = [
-    "124, 58, 237",   // violet
-    "0, 245, 212",    // cyan
-    "255, 0, 127",    // magenta
+    "124, 58, 237",   // violet (dark mode)
+    "0, 245, 212",    // cyan (dark mode)
+    "255, 0, 127",    // magenta (dark mode)
 ];
 
-// Percik neon melintasi nama saat hover.
-// Loop berjalan permanen — active dibaca via ref di dalam frame.
+const LIGHT_COLORS = [
+    "138, 109, 51",   // champagne gelap (light mode)
+    "110, 104, 94",   // abu hangat (light mode)
+    "40, 36, 30",     // near-black (light mode)
+];
+
+// Percik melintasi nama saat hover.
+// Palet mengikuti tema: dark = neon, light = champagne gelap.
+// Loop permanen — active dibaca via ref di dalam frame.
 export default function HeroSparks({ active }) {
     const canvasRef = useRef(null);
     const activeRef = useRef(active);
@@ -37,11 +44,17 @@ export default function HeroSparks({ active }) {
         };
 
         const spawn = () => {
+            // Palet mengikuti tema SAAT percik lahir
+            const isLight =
+                document.documentElement.dataset.theme === "light";
+
+            const palette = isLight ? LIGHT_COLORS : NEON_COLORS;
+
             const fromLeft = Math.random() > 0.5;
-            const hue =
-                NEON_COLORS[
-                    Math.floor(Math.random() * NEON_COLORS.length)
-                ];
+
+            const hue = palette[
+                Math.floor(Math.random() * palette.length)
+            ];
 
             sparks.push({
                 x: fromLeft ? -30 : width + 30,
@@ -61,11 +74,15 @@ export default function HeroSparks({ active }) {
             const isActive = activeRef.current;
 
             // Spawn hanya saat hover
-            if (isActive && time - lastSpawn > 80 + Math.random() * 120) {
+            if (
+                isActive &&
+                time - lastSpawn > 80 + Math.random() * 120
+            ) {
                 lastSpawn = time;
 
                 spawn();
 
+                // Kadang dobel biar rame
                 if (Math.random() > 0.6) {
                     spawn();
                 }
@@ -127,7 +144,7 @@ export default function HeroSparks({ active }) {
             window.removeEventListener("resize", resize);
             cancelAnimationFrame(rafId);
         };
-    }, []); // ← SEKALI SAJA. Jangan bergantung ke active!
+    }, []); // Loop permanen — jangan bergantung ke active!
 
     return (
         <canvas

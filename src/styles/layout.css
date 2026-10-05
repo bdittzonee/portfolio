@@ -16,15 +16,6 @@
         border-color var(--speed-fast) ease;
 }
 
-.navbar--scrolled {
-    background: rgba(11, 16, 32, 0.55);
-
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
 .navbar-container {
     width: min(1200px, 92%);
     margin-inline: auto;
@@ -44,7 +35,7 @@
 }
 
 .navbar-logo span {
-    color: var(--aurora-1);
+    color: var(--accent);
 }
 
 .navbar-menu {
@@ -53,163 +44,6 @@
     gap: 34px;
 }
 
-.navbar-menu a {
-    position: relative;
-
-    font-size: 0.85rem;
-    color: var(--text-2);
-
-    transition: color var(--speed-fast) ease;
-}
-
-.navbar-menu a:hover {
-    color: var(--text-1);
-}
-
-.navbar-menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-
-    width: 0;
-    height: 1px;
-    background: var(--text-1);
-
-    transition: width var(--speed-fast) var(--ease-out);
-}
-
-.navbar-menu a:hover::after {
-    width: 100%;
-}
-
-
-/* ---------- HAMBURGER ---------- */
-
-.navbar-toggle {
-    display: none;
-
-    width: 40px;
-    height: 40px;
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-
-    background: transparent;
-    border: none;
-}
-
-.navbar-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--text-1);
-
-    transition:
-        transform var(--speed-fast) var(--ease-out),
-        opacity var(--speed-fast) ease;
-}
-
-.navbar-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.navbar-toggle.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.navbar-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-/* ---------- MOBILE OVERLAY ---------- */
-
-.navbar-overlay {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(5, 7, 15, 0.97);
-    backdrop-filter: blur(20px);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    opacity: 0;
-    visibility: hidden;
-
-    pointer-events: none; 
-
-    transition:
-        opacity var(--speed-fast) ease,
-        visibility var(--speed-fast) ease;
-}
-
-.navbar-overlay.open {
-    opacity: 1;
-    visibility: visible;
-
-    pointer-events: auto; 
-}
-
-.navbar-overlay ul {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-
-    text-align: center;
-}
-
-.navbar-overlay li {
-    opacity: 0;
-    transform: translateY(20px);
-
-    transition:
-        opacity 0.5s var(--ease-out),
-        transform 0.5s var(--ease-out);
-}
-
-.navbar-overlay.open li {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.navbar-overlay a {
-    font-family: var(--font-display);
-    font-size: 2rem;
-
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 14px;
-}
-
-.navbar-overlay a span {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--aurora-1);
-}
-
-
-/* ---------- RESPONSIVE ---------- */
-
-@media (max-width: 768px) {
-
-    .navbar-menu {
-        display: none;
-    }
-
-    .navbar-toggle {
-        display: flex;
-    }
-
-    .navbar-container {
-        min-height: 70px;
-    }
-
-}
 
 /* ---------- NAV TEXT ROLL ---------- */
 
@@ -284,13 +118,184 @@
 }
 
 
-/* ---------- SCROLLED (ulang, gaya baru) ---------- */
+/* ---------- SCROLLED ---------- */
 
 .navbar--scrolled {
-    background: rgba(10, 10, 10, 0.75);
+    background: var(--scrolled-bg);
 
     backdrop-filter: blur(20px) saturate(120%);
     -webkit-backdrop-filter: blur(20px) saturate(120%);
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--scrolled-line);
+}
+
+
+/* ---------- THEME TOGGLE ---------- */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    margin-left: 20px;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--text-2);
+
+    cursor: pointer;
+
+    transition:
+        color var(--speed-fast) ease,
+        border-color var(--speed-fast) ease,
+        transform var(--speed-fast) var(--ease-out);
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+    transform: rotate(20deg);
+}
+
+.theme-toggle svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* ---------- HAMBURGER ---------- */
+
+.navbar-toggle {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    background: transparent;
+    border: none;
+}
+
+.navbar-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-1);
+
+    transition:
+        transform var(--speed-fast) var(--ease-out),
+        opacity var(--speed-fast) ease;
+}
+
+.navbar-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ---------- MOBILE OVERLAY ---------- */
+
+.navbar-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: var(--overlay-bg);
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity var(--speed-fast) ease,
+        visibility var(--speed-fast) ease;
+}
+
+.navbar-overlay.open {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.navbar-overlay ul {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    text-align: center;
+}
+
+.navbar-overlay li {
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.5s var(--ease-out),
+        transform 0.5s var(--ease-out);
+}
+
+.navbar-overlay.open li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-overlay a {
+    font-family: var(--font-display);
+    font-size: 2rem;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 14px;
+}
+
+.navbar-overlay a span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-container {
+        min-height: 70px;
+    }
+
+    .navbar-time {
+        display: none;
+    }
+
 }

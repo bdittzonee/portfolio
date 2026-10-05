@@ -1,4 +1,6 @@
-/* ---------- TIMELINE (line-draw) ---------- */
+/* =====================================================
+   EXPERIENCE — timeline (line-draw)
+   ===================================================== */
 
 .timeline {
     position: relative;
@@ -134,11 +136,11 @@
 
     color: var(--text-2);
 
+    font-size: var(--text-body);
+
     line-height: 1.8;
 
     margin-bottom: 36px;
-
-    font-size: var(--text-body);
 }
 
 .contact-socials {
@@ -199,6 +201,7 @@
     border-color: var(--accent);
 }
 
+
 /* ---------- FORM ---------- */
 
 .contact-form {
@@ -208,8 +211,8 @@
 
 .contact-form label {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 2px;
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
 
     color: var(--text-3);
@@ -244,7 +247,7 @@
 .contact-form textarea:focus {
     border-color: var(--accent-dim);
 
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--input-focus-bg);
 }
 
 .contact-form input::placeholder,
@@ -262,6 +265,31 @@
     align-self: flex-start;
 
     margin-top: 8px;
+}
+
+.contact-form button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+/* ---------- FORM STATUS ---------- */
+
+.form-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+
+    margin-top: -14px;
+}
+
+.form-status--ok {
+    color: var(--accent);
+}
+
+.form-status--err {
+    color: #f87171;
 }
 
 
@@ -287,6 +315,16 @@
     color: var(--text-3);
 }
 
+.footer-time {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+
+    color: var(--text-3);
+
+    font-variant-numeric: tabular-nums;
+}
+
 .footer-top {
     background: transparent;
     border: none;
@@ -301,7 +339,7 @@
 }
 
 .footer-top:hover {
-    color: var(--text-1);
+    color: var(--accent);
 }
 
 
@@ -327,6 +365,14 @@
         gap: 14px;
     }
 
+    .timeline {
+        padding-left: 24px;
+    }
+
+    .timeline-dot {
+        left: -28px;
+    }
+
     .footer {
         flex-direction: column;
 
@@ -335,69 +381,4 @@
         text-align: center;
     }
 
-}
-
-/* ---------- FORM STATUS ---------- */
-
-.form-status {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-
-    margin-top: -14px;
-}
-
-.form-status--ok {
-    color: var(--accent);
-}
-
-.form-status--err {
-    color: #f87171;
-}
-
-.contact-form button:disabled {
-    opacity: 0.5;
-
-    cursor: not-allowed;
-}
-
-/* ---------- SOCIAL COPY BUTTON ---------- */
-
-.contact-socials .social-copy {
-    background: transparent;
-    border: none;
-    padding: 0;
-
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    color: var(--text-2);
-
-    cursor: pointer;
-
-    transition: color var(--speed-fast) ease;
-}
-
-.contact-socials .social-copy:hover {
-    color: var(--accent);
-}
-
-.contact-socials .social-copy.copied {
-    color: var(--accent);
-}
-
-.footer-time {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 1px;
-
-    color: var(--text-3);
-
-    font-variant-numeric: tabular-nums;
-}
-
-.footer-top:hover {
-    color: var(--accent);
 }
