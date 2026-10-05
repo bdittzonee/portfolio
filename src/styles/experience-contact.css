@@ -145,24 +145,59 @@
     display: flex;
     flex-wrap: wrap;
 
-    gap: 24px;
+    gap: 18px;
+
+    align-items: center;
 }
 
-.contact-socials a {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.contact-socials a,
+.contact-socials .social-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
 
     color: var(--text-2);
 
-    transition: color var(--speed-fast) ease;
+    transition:
+        color var(--speed-fast) ease,
+        border-color var(--speed-fast) ease,
+        transform var(--speed-fast) var(--ease-out),
+        background var(--speed-fast) ease;
 }
 
-.contact-socials a:hover {
-    color: var(--text-1);
+.contact-socials a:hover,
+.contact-socials .social-copy:hover {
+    color: var(--accent);
+
+    border-color: var(--accent-dim);
+
+    transform: translateY(-4px);
 }
 
+.contact-socials a svg,
+.contact-socials .social-copy svg {
+    width: 18px;
+    height: 18px;
+}
+
+.contact-socials .social-copy {
+    background: transparent;
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+.contact-socials .social-copy.copied {
+    color: var(--accent);
+
+    border-color: var(--accent);
+}
 
 /* ---------- FORM ---------- */
 

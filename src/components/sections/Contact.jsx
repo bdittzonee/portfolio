@@ -1,3 +1,4 @@
+import { getSocialIcon } from "../ui/SocialIcons";
 import { useState } from "react";
 import { contact, profile, socials } from "../../data/portfolio";
 import SectionHeading from "../ui/SectionHeading";
@@ -57,8 +58,10 @@ export default function Contact() {
                             <p>{contact.message}</p>
 
                             <div className="contact-socials">
-                                {socials.map((social) =>
-                                    social.label === "Email" ? (
+                                {socials.map((social) => {
+                                    const Icon = getSocialIcon(social.label);
+
+                                    return social.label === "Email" ? (
                                         <button
                                             key={social.label}
                                             type="button"
@@ -66,10 +69,14 @@ export default function Contact() {
                                                 copied ? "copied" : ""
                                             }`}
                                             onClick={copyEmail}
+                                            aria-label="Copy email address"
+                                            title={
+                                                copied
+                                                    ? "Copied!"
+                                                    : "Copy email"
+                                            }
                                         >
-                                            {copied
-                                                ? "✓ Copied!"
-                                                : "Email ↗"}
+                                            <Icon />
                                         </button>
                                     ) : (
                                         <a
@@ -77,11 +84,13 @@ export default function Contact() {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            aria-label={social.label}
+                                            title={social.label}
                                         >
-                                            {social.label} ↗
+                                            <Icon />
                                         </a>
-                                    )
-                                )}
+                                    );
+                                })}
                             </div>
                         </div>
                     </Reveal>
