@@ -1,18 +1,27 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../data/portfolio";
 import "../styles/detail.css";
 
 export default function ProjectDetail() {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const project = projects.find((item) => item.id === id);
+
+    const handleBack = (event) => {
+        event.preventDefault();
+
+        window.__scrollTarget = "projects";
+
+        navigate("/");
+    };
 
     if (!project) {
         return (
             <main className="project-detail">
-                <Link to="/" className="detail-back">
+                <a href="/" className="detail-back" onClick={handleBack}>
                     ← Back to Projects
-                </Link>
+                </a>
 
                 <h1 className="detail-notfound">
                     Project not found 🔍
@@ -23,9 +32,9 @@ export default function ProjectDetail() {
 
     return (
         <main className="project-detail">
-            <Link to="/" className="detail-back">
+            <a href="/" className="detail-back" onClick={handleBack}>
                 ← Back to Projects
-            </Link>
+            </a>
 
             <header className="detail-header">
                 <p>

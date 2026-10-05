@@ -35,7 +35,7 @@ export default function Experience() {
                     <TimelineLine />
 
                     {timeline.map((item, index) => (
-                        <Reveal key={item.year} delay={index}>
+                        <Reveal key={`${item.year}-${item.title}`} delay={index}>
                             <div className="timeline-item">
                                 <i
                                     className={`timeline-dot ${
